@@ -1,5 +1,5 @@
-function* map(f, list) {
-  for (const a of list) {
+function* map(f, iter) {
+  for (const a of iter) {
     yield f(a);
   }
 }

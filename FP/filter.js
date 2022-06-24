@@ -1,5 +1,5 @@
-function* filter(f, list) {
-  for (const a of list) {
+function* filter(f, iter) {
+  for (const a of iter) {
     if (f(a)) yield a;
   }
 }
