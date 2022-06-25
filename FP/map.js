@@ -1,10 +1,12 @@
-function* map(f, iter) {
+import { curry } from "./curry.js";
+
+const map = curry(function* (f, iter) {
   for (const a of iter) {
     yield f(a);
   }
-}
+});
 
-const generator = map((x) => x ** 2, [1, 2, 3]);
+const generator = map((x) => x ** 2)([1, 2, 3]);
 
 console.log(generator); // Object [Generator] {}
 console.log(generator.next()); // { value: 1, done: false }

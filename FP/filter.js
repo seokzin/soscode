@@ -1,10 +1,12 @@
-function* filter(f, iter) {
+import { curry } from "./curry.js";
+
+const filter = curry(function* (f, iter) {
   for (const a of iter) {
     if (f(a)) yield a;
   }
-}
+});
 
-const generator = filter((x) => x > 2, [1, 2, 3, 4, 5]);
+const generator = filter((x) => x > 2)([1, 2, 3, 4, 5]);
 
 console.log(generator); // Object [Generator] {}
 console.log(generator.next()); // { value: 3, done: false }

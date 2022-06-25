@@ -1,4 +1,6 @@
-function take(length, iter) {
+import { curry } from "./curry.js";
+
+const take = curry((length, iter) => {
   let res = [];
 
   for (const a of iter) {
@@ -7,7 +9,7 @@ function take(length, iter) {
   }
 
   return res;
-}
+});
 
-console.log(take(3, [1, 2, 3, 4, 5])); // [ 1, 2, 3 ]
-console.log(take(Infinity, [1, 2, 3, 4, 5])); // [ 1, 2, 3, 4, 5 ]
+console.log(take(3)([1, 2, 3, 4, 5])); // [ 1, 2, 3 ]
+console.log(take(Infinity)([1, 2, 3, 4, 5])); // [ 1, 2, 3, 4, 5 ]
