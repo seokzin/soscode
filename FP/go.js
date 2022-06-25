@@ -1,6 +1,11 @@
-const go = (a, ...fs) => reduce((a, f) => f(a), a, fs);
+const go = (...as) => reduce((a, f) => f(a), as);
 
 function reduce(f, acc, iter) {
+  if (arguments.length === 2) {
+    iter = acc[Symbol.iterator]();
+    acc = iter.next().value;
+  }
+
   for (const a of iter) {
     acc = f(acc, a);
   }
