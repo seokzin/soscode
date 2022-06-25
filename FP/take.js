@@ -11,5 +11,5 @@ export const take = curry((length, iter) => {
   return res;
 });
 
-console.log(take(3)([1, 2, 3, 4, 5])); // [ 1, 2, 3 ]
-console.log(take(Infinity)([1, 2, 3, 4, 5])); // [ 1, 2, 3, 4, 5 ]
+// console.log(take(3)([1, 2, 3, 4, 5])); // [ 1, 2, 3 ]
+// console.log(take(Infinity)([1, 2, 3, 4, 5])); // [ 1, 2, 3, 4, 5 ]
