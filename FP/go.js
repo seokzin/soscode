@@ -1,8 +1,7 @@
 import { reduce } from "./reduce.js";
+import { log } from "./utils.js";
 
 export const go = (...as) => reduce((a, f) => f(a), as);
-
-const log = console.log;
 
 // go(
 //   10,

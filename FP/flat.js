@@ -3,6 +3,7 @@ import { map } from "./map.js";
 import { take } from "./take.js";
 import { reduce } from "./reduce.js";
 import { go } from "./go.js";
+import { log } from "./utils.js";
 
 export const flat = function* (iter) {
   for (const a of iter) {
@@ -16,13 +17,7 @@ export const flat = function* (iter) {
   }
 };
 
-const arr = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-];
-
-const log = console.log;
+const arr = [[1, 2, 3], 4, 5, [6, 7, 8, 9]];
 
 go(
   arr,
