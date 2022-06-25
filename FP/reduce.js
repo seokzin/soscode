@@ -1,4 +1,4 @@
-function reduce(f, acc, iter) {
+export function reduce(f, acc, iter) {
   if (arguments.length === 2) {
     iter = acc[Symbol.iterator]();
     acc = iter.next().value;
