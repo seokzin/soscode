@@ -1,6 +1,6 @@
 import { curry } from "./curry.js";
 
-const take = curry((length, iter) => {
+export const take = curry((length, iter) => {
   let res = [];
 
   for (const a of iter) {

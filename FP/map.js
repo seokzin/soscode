@@ -1,6 +1,6 @@
 import { curry } from "./curry.js";
 
-const map = curry(function* (f, iter) {
+export const map = curry(function* (f, iter) {
   for (const a of iter) {
     yield f(a);
   }

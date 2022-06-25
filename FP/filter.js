@@ -1,6 +1,6 @@
 import { curry } from "./curry.js";
 
-const filter = curry(function* (f, iter) {
+export const filter = curry(function* (f, iter) {
   for (const a of iter) {
     if (f(a)) yield a;
   }
