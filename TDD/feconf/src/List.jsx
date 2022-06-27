@@ -1,9 +1,11 @@
 import React from "react";
 
-export default function List() {
+export default function List({ tasks }) {
   return (
     <ul>
-      <li>통과를 위해 수단과 방법을 가리지 않는다</li>
+      {tasks.map((task) => (
+        <li key={task.id}>{task.title}</li>
+      ))}
     </ul>
   );
 }
