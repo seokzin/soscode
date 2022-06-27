@@ -1,14 +1,12 @@
 import React from "react";
 
-import List from "./List";
-
-import tasks from "../fixtures/tasks";
+import ListContainer from "./ListContainer";
 
 export default function App() {
   return (
     <div>
       <h1>To-do</h1>
-      <List tasks={tasks} />
+      <ListContainer />
     </div>
   );
 }
