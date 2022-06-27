@@ -6,7 +6,9 @@ import List from "./List";
 
 describe("List", () => {
   it("render tasks", () => {
-    const { container } = render(<List />);
+    const tasks = [{ id: 1, title: "통과를 위해 수단과 방법을 가리지 않는다" }];
+
+    const { container } = render(<List tasks={tasks} />);
 
     expect(container).toHaveTextContent(
       "통과를 위해 수단과 방법을 가리지 않는다"
