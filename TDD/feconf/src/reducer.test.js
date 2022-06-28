@@ -1,6 +1,6 @@
 import reducer from "./reducer";
 
-import { setTasks } from "./actions";
+import { setTasks, deleteTask } from "./actions";
 import tasks from "../fixtures/tasks";
 
 describe("reducer", () => {
@@ -14,6 +14,19 @@ describe("reducer", () => {
       );
 
       expect(state.tasks).not.toHaveLength(0);
+    });
+  });
+
+  describe("deleteTask", () => {
+    it("removes the task from tasks", () => {
+      const state = reducer(
+        {
+          tasks: [{ id: 1, title: "통과를 위해 수단과 방법을 가리지 않는다" }],
+        },
+        deleteTask(1)
+      );
+
+      expect(state.tasks).toHaveLength(0);
     });
   });
 });
