@@ -10,7 +10,7 @@ export default function List({ tasks, onClick }) {
       {tasks.map((task) => (
         <li key={task.id}>
           {task.title}
-          <button type="button" onClick={onClick}>
+          <button type="button" onClick={() => onClick(task.id)}>
             ✔
           </button>
         </li>
