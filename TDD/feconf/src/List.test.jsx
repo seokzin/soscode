@@ -31,7 +31,7 @@ describe("List", () => {
       const buttons = getAllByText("✔");
       fireEvent.click(buttons[0]);
 
-      expect(handleClick).toBeCalled();
+      expect(handleClick).toBeCalledWith(1);
     });
   });
 

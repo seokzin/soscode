@@ -25,6 +25,9 @@ describe("ListContainer", () => {
     const buttons = getAllByText("✔");
     fireEvent.click(buttons[0]);
 
-    expect(dispatch).toBeCalled();
+    expect(dispatch).toBeCalledWith({
+      type: "deleteTask",
+      payload: { id: 1 },
+    });
   });
 });
