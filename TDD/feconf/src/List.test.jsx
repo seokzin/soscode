@@ -4,6 +4,10 @@ import { render, fireEvent } from "@testing-library/react";
 import List from "./List";
 
 describe("List", () => {
+  function renderList(tasks) {
+    return render(<List tasks={tasks} />);
+  }
+
   context("with tasks", () => {
     const tasks = [
       { id: 1, title: "통과를 위해 수단과 방법을 가리지 않는다" },
@@ -11,7 +15,7 @@ describe("List", () => {
     ];
 
     it("render tasks", () => {
-      const { container } = render(<List tasks={tasks} />);
+      const { container } = renderList(tasks);
 
       expect(container).toHaveTextContent(
         "통과를 위해 수단과 방법을 가리지 않는다"
@@ -20,7 +24,7 @@ describe("List", () => {
     });
 
     it("render '✔' buttons to delete a task", () => {
-      const { getAllByText } = render(<List tasks={tasks} />);
+      const { getAllByText } = renderList(tasks);
 
       const buttons = getAllByText("✔");
       fireEvent.click(buttons[0]);
@@ -31,7 +35,7 @@ describe("List", () => {
     const tasks = [];
 
     it("renders no tasks message", () => {
-      const { container } = render(<List tasks={tasks} />);
+      const { container } = renderList(tasks);
 
       expect(container).toHaveTextContent("할 일이 없어요!");
     });
