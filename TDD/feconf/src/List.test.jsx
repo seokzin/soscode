@@ -4,8 +4,10 @@ import { render, fireEvent } from "@testing-library/react";
 import List from "./List";
 
 describe("List", () => {
+  const handleClick = jest.fn();
+
   function renderList(tasks) {
-    return render(<List tasks={tasks} />);
+    return render(<List tasks={tasks} onClick={handleClick} />);
   }
 
   context("with tasks", () => {
@@ -28,6 +30,8 @@ describe("List", () => {
 
       const buttons = getAllByText("✔");
       fireEvent.click(buttons[0]);
+
+      expect(handleClick).toBeCalled();
     });
   });
 
