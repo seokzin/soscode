@@ -18,6 +18,13 @@ describe("List", () => {
       );
       expect(container).toHaveTextContent("TDD를 공부한다");
     });
+
+    it("render '✔' buttons to delete a task", () => {
+      const { getAllByText } = render(<List tasks={tasks} />);
+
+      const buttons = getAllByText("✔");
+      fireEvent.click(buttons[0]);
+    });
   });
 
   context("without tasks ", () => {
