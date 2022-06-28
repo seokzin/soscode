@@ -8,7 +8,10 @@ export default function List({ tasks }) {
   return (
     <ul>
       {tasks.map((task) => (
-        <li key={task.id}>{task.title}</li>
+        <li key={task.id}>
+          {task.title}
+          <button type="button">✔</button>
+        </li>
       ))}
     </ul>
   );
