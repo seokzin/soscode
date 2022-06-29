@@ -1,16 +1,5 @@
 const statement = (invoice, plays) => {
-  let totalAmount = 0;
-  let volumeCredits = 0;
-  let result = `청구내역 (고객명: ${invoice.customer})\n`;
-
-  const format = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits: 2,
-  }).format;
-
-  for (let perf of invoice.performances) {
-    const play = plays[perf.playID];
+  const amountFor = (perf, play) => {
     let thisAmount = 0;
 
     switch (play.type) {
@@ -29,6 +18,23 @@ const statement = (invoice, plays) => {
       default:
         throw new Error(`알 수 없는 장르 : ${play.type}`);
     }
+    return thisAmount;
+  };
+
+  let totalAmount = 0;
+  let volumeCredits = 0;
+  let result = `청구내역 (고객명: ${invoice.customer})\n`;
+
+  const format = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+  }).format;
+
+  for (let perf of invoice.performances) {
+    const play = plays[perf.playID];
+    let thisAmount = amountFor(perf, play);
+
     // 포인트를 적립한다.
     volumeCredits += Math.max(perf.audience - 30, 0);
     // 희극 관객 5명마다 추가 포인트를 제공한다.
