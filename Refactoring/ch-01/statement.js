@@ -1,4 +1,5 @@
 const statement = (invoice, plays) => {
+  const playFor = (aPerformance) => plays[aPerformance.playID];
   const amountFor = (aPerformance, play) => {
     let result = 0;
 
@@ -32,7 +33,7 @@ const statement = (invoice, plays) => {
   }).format;
 
   for (let perf of invoice.performances) {
-    const play = plays[perf.playID];
+    const play = playFor(perf);
     let thisAmount = amountFor(perf, play);
 
     // 포인트를 적립한다.
