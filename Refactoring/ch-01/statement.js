@@ -1,4 +1,4 @@
-const renderPlainText = (data, invoice, plays) => {
+const renderPlainText = (data, plays) => {
   const playFor = (aPerformance) => plays[aPerformance.playID];
   const amountFor = (aPerformance) => {
     let result = 0;
@@ -38,7 +38,7 @@ const renderPlainText = (data, invoice, plays) => {
   };
   const totalVolumeCredits = () => {
     let result = 0;
-    for (let perf of invoice.performances) {
+    for (let perf of data.performances) {
       result += volumeCreditsFor(perf);
     }
     return result;
@@ -46,15 +46,15 @@ const renderPlainText = (data, invoice, plays) => {
   const totalAmount = () => {
     let result = 0;
 
-    for (let perf of invoice.performances) {
+    for (let perf of data.performances) {
       result += amountFor(perf);
     }
     return result;
   };
 
-  let result = `청구내역 (고객명: ${invoice.customer})\n`;
+  let result = `청구내역 (고객명: ${data.customer})\n`;
 
-  for (let perf of invoice.performances) {
+  for (let perf of data.performances) {
     // 청구 내역을 출력한다.
     result += `${playFor(perf).name}: ${usd(amountFor(perf))} (${
       perf.audience
@@ -68,8 +68,11 @@ const renderPlainText = (data, invoice, plays) => {
 };
 
 const statement = (invoice, plays) => {
-  const statementData = {};
-  return renderPlainText(statementData, invoice, plays);
+  const statementData = {
+    customer: invoice.customer,
+    performances: invoice.performances,
+  };
+  return renderPlainText(statementData, plays);
 };
 
 export default statement;
