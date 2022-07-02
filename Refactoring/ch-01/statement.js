@@ -1,12 +1,4 @@
 const renderPlainText = (data, plays) => {
-  const volumeCreditsFor = (aPerformance) => {
-    let volumeCredits = 0;
-    volumeCredits += Math.max(aPerformance.audience - 30, 0);
-    if ("comedy" === aPerformance.play.type) {
-      volumeCredits += Math.floor(aPerformance.audience / 5);
-    }
-    return volumeCredits;
-  };
   const usd = (aNumber) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -17,7 +9,7 @@ const renderPlainText = (data, plays) => {
   const totalVolumeCredits = () => {
     let result = 0;
     for (let perf of data.performances) {
-      result += volumeCreditsFor(perf);
+      result += perf.volumeCredits;
     }
     return result;
   };
@@ -67,10 +59,19 @@ const statement = (invoice, plays) => {
     }
     return result;
   };
+  const volumeCreditsFor = (aPerformance) => {
+    let volumeCredits = 0;
+    volumeCredits += Math.max(aPerformance.audience - 30, 0);
+    if ("comedy" === aPerformance.play.type) {
+      volumeCredits += Math.floor(aPerformance.audience / 5);
+    }
+    return volumeCredits;
+  };
   const enrichPerformance = (aPerformance) => {
     const result = { ...aPerformance };
     result.play = playFor(result);
     result.amount = amountFor(result);
+    result.volumeCredits = volumeCreditsFor(result);
     return result;
   };
   const statementData = {
