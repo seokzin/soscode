@@ -21,11 +21,11 @@ const renderPlainText = (data, plays) => {
     }
     return result;
   };
-  const volumeCreditsFor = (perf) => {
+  const volumeCreditsFor = (aPerformance) => {
     let volumeCredits = 0;
-    volumeCredits += Math.max(perf.audience - 30, 0);
-    if ("comedy" === playFor(perf).type) {
-      volumeCredits += Math.floor(perf.audience / 5);
+    volumeCredits += Math.max(aPerformance.audience - 30, 0);
+    if ("comedy" === playFor(aPerformance).type) {
+      volumeCredits += Math.floor(aPerformance.audience / 5);
     }
     return volumeCredits;
   };
