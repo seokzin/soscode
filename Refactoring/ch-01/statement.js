@@ -69,9 +69,13 @@ const renderPlainText = (data, plays) => {
 };
 
 const statement = (invoice, plays) => {
+  const enrichPerformance = (aPerformance) => {
+    const result = { ...aPerformance };
+    return result;
+  };
   const statementData = {
     customer: invoice.customer,
-    performances: invoice.performances,
+    performances: invoice.performances.map(enrichPerformance),
   };
   return renderPlainText(statementData, plays);
 };
