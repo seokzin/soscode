@@ -1,26 +1,4 @@
 const renderPlainText = (data, plays) => {
-  const amountFor = (aPerformance) => {
-    let result = 0;
-
-    switch (aPerformance.play.type) {
-      case "tragedy": // 비극
-        result = 40000;
-        if (aPerformance.audience > 30) {
-          result += 1000 * (aPerformance.audience - 30);
-        }
-        break;
-      case "comedy": // 희극
-        result = 30000;
-        if (aPerformance.audience > 20) {
-          result += 10000 + 500 * (aPerformance.audience - 20);
-        }
-        result += 300 * aPerformance.audience;
-        break;
-      default:
-        throw new Error(`알 수 없는 장르 : ${aPerformance.play.type}`);
-    }
-    return result;
-  };
   const volumeCreditsFor = (aPerformance) => {
     let volumeCredits = 0;
     volumeCredits += Math.max(aPerformance.audience - 30, 0);
@@ -47,7 +25,7 @@ const renderPlainText = (data, plays) => {
     let result = 0;
 
     for (let perf of data.performances) {
-      result += amountFor(perf);
+      result += perf.amount;
     }
     return result;
   };
@@ -56,9 +34,7 @@ const renderPlainText = (data, plays) => {
 
   for (let perf of data.performances) {
     // 청구 내역을 출력한다.
-    result += `${perf.play.name}: ${usd(amountFor(perf))} (${
-      perf.audience
-    }석)\n`;
+    result += `${perf.play.name}: ${usd(perf.amount)} (${perf.audience}석)\n`;
   }
 
   result += `총액: ${usd(totalAmount())}\n`;
@@ -69,9 +45,32 @@ const renderPlainText = (data, plays) => {
 
 const statement = (invoice, plays) => {
   const playFor = (aPerformance) => plays[aPerformance.playID];
+  const amountFor = (aPerformance) => {
+    let result = 0;
+
+    switch (aPerformance.play.type) {
+      case "tragedy": // 비극
+        result = 40000;
+        if (aPerformance.audience > 30) {
+          result += 1000 * (aPerformance.audience - 30);
+        }
+        break;
+      case "comedy": // 희극
+        result = 30000;
+        if (aPerformance.audience > 20) {
+          result += 10000 + 500 * (aPerformance.audience - 20);
+        }
+        result += 300 * aPerformance.audience;
+        break;
+      default:
+        throw new Error(`알 수 없는 장르 : ${aPerformance.play.type}`);
+    }
+    return result;
+  };
   const enrichPerformance = (aPerformance) => {
     const result = { ...aPerformance };
     result.play = playFor(result);
+    result.amount = amountFor(result);
     return result;
   };
   const statementData = {
