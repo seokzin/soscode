@@ -1,4 +1,4 @@
-const renderPlainText = (invoice, plays) => {
+const renderPlainText = (data, invoice, plays) => {
   const playFor = (aPerformance) => plays[aPerformance.playID];
   const amountFor = (aPerformance) => {
     let result = 0;
@@ -67,6 +67,9 @@ const renderPlainText = (invoice, plays) => {
   return result;
 };
 
-const statement = (invoice, plays) => renderPlainText(invoice, plays);
+const statement = (invoice, plays) => {
+  const statementData = {};
+  return renderPlainText(statementData, invoice, plays);
+};
 
 export default statement;
