@@ -52,14 +52,9 @@ const statement = (invoice, plays) => {
     }
     return volumeCredits;
   };
-  const totalAmount = (data) => {
-    let result = 0;
+  const totalAmount = (data) =>
+    data.performances.reduce((total, p) => total + p.amount, 0);
 
-    for (let perf of data.performances) {
-      result += perf.amount;
-    }
-    return result;
-  };
   const totalVolumeCredits = (data) => {
     let result = 0;
     for (let perf of data.performances) {
