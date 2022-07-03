@@ -37,12 +37,10 @@ const renderHTML = (data) => {
   return result;
 };
 
-const statement = (invoice, plays) => {
+export const statement = (invoice, plays) => {
   return renderPlainText(createStatementData(invoice, plays));
 };
 
-const htmlStatement = (invoice, plays) => {
+export const htmlStatement = (invoice, plays) => {
   return renderHTML(createStatementData(invoice, plays));
 };
-
-export default statement;
