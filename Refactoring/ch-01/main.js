@@ -7,6 +7,3 @@ const plays = readJSON("ch-01/plays.json");
 invoices.forEach((invoice) => {
   console.log(statement(invoice, plays));
 });
-invoices.forEach((invoice) => {
-  console.log(htmlStatement(invoice, plays));
-});
