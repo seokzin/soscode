@@ -54,14 +54,8 @@ const statement = (invoice, plays) => {
   };
   const totalAmount = (data) =>
     data.performances.reduce((total, p) => total + p.amount, 0);
-
-  const totalVolumeCredits = (data) => {
-    let result = 0;
-    for (let perf of data.performances) {
-      result += perf.volumeCredits;
-    }
-    return result;
-  };
+  const totalVolumeCredits = (data) =>
+    data.performances.reduce((total, p) => total + p.volumeCredits, 0);
   const enrichPerformance = (aPerformance) => {
     const result = { ...aPerformance };
     result.play = playFor(result);
