@@ -1,6 +1,6 @@
 import createStatementData from "./createStatementData.js";
 
-const renderPlainText = (data, plays) => {
+const renderPlainText = (data) => {
   const usd = (aNumber) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
