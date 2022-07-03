@@ -12,6 +12,10 @@ class PerformanceCalculator {
     }
     return volumeCredits;
   }
+
+  get amount() {
+    throw new Error(`서브클래스 전용 메서드입니다.`);
+  }
 }
 class TragedyCalculator extends PerformanceCalculator {
   get amount() {
@@ -40,7 +44,7 @@ const createPerformanceCalculator = (aPerformance, aPlay) => {
     case "comedy":
       return new ComedyCalculator(aPerformance, aPlay);
     default:
-      new Error(`알 수 없는 장르 : ${aPlay.type}`);
+      return new PerformanceCalculator(aPerformance, aPlay);
   }
 };
 const createStatementData = (invoice, plays) => {
