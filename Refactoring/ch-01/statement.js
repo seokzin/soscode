@@ -19,6 +19,24 @@ const renderPlainText = (data) => {
   return result;
 };
 
+const renderHTML = (data) => {
+  let result = `<h1>청구내역 (고객명: ${data.customer})</h1>
+  <table>
+  <tr><th>연극</th><th>좌석수</th><th>금액</th></tr>
+  `;
+  for (let perf of data.performances) {
+    // 청구 내역을 출력한다.
+    result += `<tr><td>${perf.play.name}</td><td>(${
+      perf.audience
+    }석)</td><td>${usd(perf.amount)}</td></tr>`;
+  }
+  result += `</table>
+  <p>총액: <em>${data.totalAmount}</em></p>
+  <p>적립 포인트: <em>${data.totalVolumeCredits}</em></p>
+  `;
+  return result;
+};
+
 const statement = (invoice, plays) => {
   return renderPlainText(createStatementData(invoice, plays));
 };
