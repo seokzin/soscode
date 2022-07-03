@@ -20,7 +20,7 @@ const renderPlainText = (data, plays) => {
   return result;
 };
 
-const statement = (invoice, plays) => {
+const createStatementData = (invoice, plays) => {
   const playFor = (aPerformance) => plays[aPerformance.playID];
   const amountFor = (aPerformance) => {
     let result = 0;
@@ -63,13 +63,17 @@ const statement = (invoice, plays) => {
     result.volumeCredits = volumeCreditsFor(result);
     return result;
   };
-  const statementData = {
-    customer: invoice.customer,
-    performances: invoice.performances.map(enrichPerformance),
-  };
+
+  const statementData = {};
+  statementData.customer = invoice.customer;
+  statementData.performances = invoice.performances.map(enrichPerformance);
   statementData.totalAmount = totalAmount(statementData);
   statementData.totalVolumeCredits = totalVolumeCredits(statementData);
-  return renderPlainText(statementData, plays);
+  return statementData;
+};
+
+const statement = (invoice, plays) => {
+  return renderPlainText(createStatementData(invoice, plays));
 };
 
 export default statement;
