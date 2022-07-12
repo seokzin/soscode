@@ -33,3 +33,20 @@ describe("province", () => {
     expect(asia.profit).equal(292);
   });
 });
+
+describe("no producers", () => {
+  let noProducers;
+
+  beforeEach(() => {
+    const data = { name: "no producers", producers: [], demand: 30, price: 20 };
+    noProducers = new Province(data);
+  });
+
+  it("shortfall", () => {
+    expect(noProducers.shortfall).equal(30);
+  });
+
+  it("profit", () => {
+    expect(noProducers.profit).equal(0);
+  });
+});
