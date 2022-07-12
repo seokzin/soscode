@@ -20,17 +20,19 @@ const recordDueData = (invoice) => {
   );
 };
 
-const printOwing = (invoice) => {
-  let outstanding = 0;
-
-  printBanner();
+function calculateOutstanding(invoice) {
+  let result = 0;
 
   for (const o of invoice.orders) {
-    outstanding += o.amount;
+    result += o.amount;
   }
+  return result;
+}
 
+const printOwing = (invoice) => {
+  printBanner();
+  const outstanding = calculateOutstanding(invoice);
   recordDueData(invoice);
-
   printDetails(invoice, outstanding);
 };
 
