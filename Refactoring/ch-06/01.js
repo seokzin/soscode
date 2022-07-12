@@ -4,13 +4,13 @@ const printBanner = () => {
   console.log("*******************");
 };
 
-const printOwing = (invoice) => {
-  const printDetails = () => {
-    console.log(`고객명: ${invoice.customer}`);
-    console.log(`채무액: ${outstanding}`);
-    console.log(`마감일: ${invoice.dueDate?.toLocaleString()}`);
-  };
+const printDetails = (invoice, outstanding) => {
+  console.log(`고객명: ${invoice.customer}`);
+  console.log(`채무액: ${outstanding}`);
+  console.log(`마감일: ${invoice.dueDate?.toLocaleString()}`);
+};
 
+const printOwing = (invoice) => {
   let outstanding = 0;
 
   printBanner();
@@ -27,7 +27,7 @@ const printOwing = (invoice) => {
     today.getDate() + 30
   );
 
-  printDetails();
+  printDetails(invoice, outstanding);
 };
 
 printOwing({
