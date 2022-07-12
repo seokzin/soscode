@@ -10,6 +10,16 @@ const printDetails = (invoice, outstanding) => {
   console.log(`마감일: ${invoice.dueDate?.toLocaleString()}`);
 };
 
+const recordDueData = (invoice) => {
+  const today = new Date();
+
+  invoice.dueDate = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate() + 30
+  );
+};
+
 const printOwing = (invoice) => {
   let outstanding = 0;
 
@@ -19,13 +29,7 @@ const printOwing = (invoice) => {
     outstanding += o.amount;
   }
 
-  const today = new Date();
-
-  invoice.dueDate = new Date(
-    today.getFullYear(),
-    today.getMonth(),
-    today.getDate() + 30
-  );
+  recordDueData(invoice);
 
   printDetails(invoice, outstanding);
 };
