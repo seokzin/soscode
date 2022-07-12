@@ -5,6 +5,12 @@ const printBanner = () => {
 };
 
 const printOwing = (invoice) => {
+  const printDetails = () => {
+    console.log(`고객명: ${invoice.customer}`);
+    console.log(`채무액: ${outstanding}`);
+    console.log(`마감일: ${invoice.dueDate?.toLocaleString()}`);
+  };
+
   let outstanding = 0;
 
   printBanner();
@@ -21,9 +27,7 @@ const printOwing = (invoice) => {
     today.getDate() + 30
   );
 
-  console.log(`고객명: ${invoice.customer}`);
-  console.log(`채무액: ${outstanding}`);
-  console.log(`마감일: ${invoice.dueDate?.toLocaleString()}`);
+  printDetails();
 };
 
 printOwing({
