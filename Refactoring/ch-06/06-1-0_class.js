@@ -1,3 +1,5 @@
+import { assert } from "chai";
+
 class Person {
   constructor(data) {
     this._lastName = data._lastName;
@@ -19,3 +21,8 @@ export const defaultOwner = () => new Person(defaultOwnerData);
 export const setDefaultOwner = (arg) => {
   defaultOwnerData = arg;
 };
+
+const owner1 = defaultOwner();
+const owner2 = defaultOwner();
+owner2.lastName = "파슨스"; // Error
+assert.equal("파슨스", owner1.lastName, "owner2를 변경한 후");
