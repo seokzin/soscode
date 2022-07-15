@@ -15,15 +15,15 @@ const run = (args) => {
 
   if (args.includes("-r")) {
     const readyOrders = orders.filter((o) => o.product.status === "ready");
-    console.log("ready", readyOrders.length);
+    return readyOrders.length;
   } else {
-    console.log("not ready", orders.length);
+    return orders.length;
   }
 };
 
 const main = (args) => {
   try {
-    run(args);
+    console.log(run(args));
   } catch (err) {
     console.error(err);
   }
