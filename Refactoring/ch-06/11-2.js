@@ -7,15 +7,15 @@ class Order {
   }
 }
 
-class CommandLine {}
+class CommandLine {
+  constructor(args) {
+    if (args.length === 0) throw new Error("파일명을 입력하세요");
+    this.onlyCountReady = args.includes("-r");
+    this.filename = args[args.length - 1];
+  }
+}
 
-const parseCommandLine = (args) => {
-  if (args.length === 0) throw new Error("파일명을 입력하세요");
-  const result = new CommandLine();
-  result.onlyCountReady = args.includes("-r");
-  result.filename = args[args.length - 1];
-  return result;
-};
+const parseCommandLine = (args) => new CommandLine(args);
 
 const countOrders = (commandLine) => {
   const input = readJSON(commandLine.filename);
