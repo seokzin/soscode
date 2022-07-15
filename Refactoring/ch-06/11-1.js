@@ -17,14 +17,18 @@ const applyShipping = (priceData, shippingMethod) => {
   return priceData.basePrice - priceData.discount + shippingCost;
 };
 
-const priceOrder = (product, quantity, shippingMethod) => {
+const calculatePriceData = (product, quantity) => {
   const basePrice = product.basePrice * quantity;
   const discount =
     Math.max(quantity - product.discountThreshold, 0) *
     product.basePrice *
     product.discountRate;
 
-  const priceData = { basePrice, quantity, discount };
+  return { basePrice, quantity, discount };
+};
+
+const priceOrder = (product, quantity, shippingMethod) => {
+  const priceData = calculatePriceData(product, quantity);
 
   return applyShipping(priceData, shippingMethod);
 };
