@@ -9,6 +9,14 @@ class Order {
 
 class CommandLine {}
 
+const parseCommandLine = (args) => {
+  if (args.length === 0) throw new Error("파일명을 입력하세요");
+  const result = new CommandLine();
+  result.onlyCountReady = args.includes("-r");
+  result.filename = args[args.length - 1];
+  return result;
+};
+
 const countOrders = (commandLine) => {
   const input = readJSON(commandLine.filename);
   const orders = input.map((item) => new Order(item));
@@ -21,13 +29,7 @@ const countOrders = (commandLine) => {
   }
 };
 
-const run = (args) => {
-  if (args.length === 0) throw new Error("파일명을 입력하세요");
-  const commandLine = new CommandLine();
-  commandLine.onlyCountReady = args.includes("-r");
-  commandLine.filename = args[args.length - 1];
-  return countOrders(commandLine);
-};
+const run = (args) => countOrders(parseCommandLine(args));
 
 const main = (args) => {
   try {
