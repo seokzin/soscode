@@ -1,29 +1,31 @@
-import { readJSON } from '../fileController.js'
+import { readJSON } from "../fileController.js";
 
-console.log(process.argv)
 class Order {
-  product = {}
+  product = {};
   constructor(product) {
-    this.product = product
+    this.product = product;
   }
 }
 
-const main = () => {
+const run = (args) => {
+  if (args.length === 0) throw new Error("파일명을 입력하세요");
+  const filename = args[args.length - 1];
+  const input = readJSON(filename);
+  const orders = input.map((item) => new Order(item));
+
+  if (args.includes("-r")) {
+    const readyOrders = orders.filter((o) => o.product.status === "ready");
+    console.log("ready", readyOrders.length);
+  } else {
+    console.log("not ready", orders.length);
+  }
+};
+
+const main = (args) => {
   try {
-    const argv = process.argv
-    if (argv.length < 3) throw new Error('파일명을 입력하세요')
-    const filename = argv[argv.length - 1]
-    const input = readJSON(filename)
-    const orders = input.map(item => new Order(item))
-
-    if (argv.includes('-r')) {
-      const readyOrders = orders.filter(o => o.product.status === 'ready')
-      console.log('ready', readyOrders.length)
-    } else {
-      console.log('not ready', orders.length)
-    }
+    run(args);
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
-}
-main()
+};
+main(process.argv.slice(2));
