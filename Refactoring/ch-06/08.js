@@ -21,6 +21,10 @@ class NumberRange {
   get max() {
     return this._data.max;
   }
+
+  contains(r) {
+    return r.temp >= this.min && r.temp <= this.max;
+  }
 }
 
 const operatingPlan = {
@@ -34,6 +38,6 @@ const range = new NumberRange(
 );
 
 const readingsOutsideRange = (station) =>
-  station.readings.filter((r) => r.temp < range.min || r.temp > range.max);
+  station.readings.filter((r) => !range.contains(r));
 
 console.log(readingsOutsideRange(station));
