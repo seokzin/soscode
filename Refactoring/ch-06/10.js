@@ -5,7 +5,7 @@ const baseRate = (month, year) => year - 2000 + month;
 const calculateBaseCharge = (aReading) =>
   baseRate(aReading.month, aReading.year) * aReading.quantity;
 
-const enrichReading = (original) => {
+export const enrichReading = (original) => {
   const result = cloneDeep(original);
   result.baseCharge = calculateBaseCharge(result);
   return result;
