@@ -15,8 +15,6 @@ class CommandLine {
   }
 }
 
-const parseCommandLine = (args) => new CommandLine(args);
-
 const countOrders = (commandLine) => {
   const input = readJSON(commandLine.filename);
   const orders = input.map((item) => new Order(item));
@@ -29,11 +27,9 @@ const countOrders = (commandLine) => {
   }
 };
 
-const run = (args) => countOrders(parseCommandLine(args));
-
 const main = (args) => {
   try {
-    console.log(run(args));
+    console.log(countOrders(new CommandLine(args)));
   } catch (err) {
     console.error(err);
   }
