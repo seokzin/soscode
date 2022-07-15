@@ -21,9 +21,7 @@ const acquireReading = () => ({
 const client1 = () => {
   const rawReading = acquireReading();
   const aReading = enrichReading(rawReading);
-  const baseCharge =
-    baseRate(aReading.month, aReading.year) * aReading.quantity;
-  return baseCharge;
+  return aReading.baseCharge;
 };
 
 const client2 = () => {
