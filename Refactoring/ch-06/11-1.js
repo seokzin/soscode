@@ -28,9 +28,7 @@ const calculatePriceData = (product, quantity) => {
 };
 
 const priceOrder = (product, quantity, shippingMethod) => {
-  const priceData = calculatePriceData(product, quantity);
-
-  return applyShipping(priceData, shippingMethod);
+  return applyShipping(calculatePriceData(product, quantity), shippingMethod);
 };
 
 products.forEach((product) => {
