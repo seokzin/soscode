@@ -7,9 +7,7 @@ class Order {
   }
 }
 
-const run = (args) => {
-  if (args.length === 0) throw new Error("파일명을 입력하세요");
-  const filename = args[args.length - 1];
+const countOrders = (args, filename) => {
   const input = readJSON(filename);
   const orders = input.map((item) => new Order(item));
 
@@ -19,6 +17,12 @@ const run = (args) => {
   } else {
     return orders.length;
   }
+};
+
+const run = (args) => {
+  if (args.length === 0) throw new Error("파일명을 입력하세요");
+  const filename = args[args.length - 1];
+  return countOrders(args, filename);
 };
 
 const main = (args) => {
