@@ -20,6 +20,7 @@ class Order {
 class Priority {
   #value;
   constructor(value) {
+    if (value instanceof Priority) return value;
     this.#value = value;
   }
 
