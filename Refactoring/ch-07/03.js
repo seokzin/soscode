@@ -1,7 +1,7 @@
 class Order {
   #priority = "";
   constructor(data) {
-    this.#priority = data.priority;
+    this.#priority = new Priority(data.priority);
   }
 
   get priority() {
@@ -18,14 +18,36 @@ class Order {
 }
 
 class Priority {
+  static legalValues() {
+    return ["low", "normal", "high", "rush"];
+  }
+
   #value;
   constructor(value) {
     if (value instanceof Priority) return value;
+    if (Priority.legalValues().includes(value)) this.#value = value;
+    else throw new Error(`<${value}> is invalid for Priority`);
     this.#value = value;
   }
 
   toString() {
     return this.#value;
+  }
+
+  get _index() {
+    return Priority.legalValues().findIndex((s) => s === this.#value);
+  }
+
+  equals(other) {
+    return this._index === other._index;
+  }
+
+  higherThan(other) {
+    return this._index > other._index;
+  }
+
+  lowerThan(other) {
+    return this._index < other._index;
   }
 }
 
@@ -37,8 +59,8 @@ const client1 = () => {
     { priority: "normal" },
   ].map((o) => new Order(o));
 
-  const highPriorityCount = orders.filter(
-    (o) => o.priorityString === "high" || o.priorityString === "rush"
+  const highPriorityCount = orders.filter((o) =>
+    o.priority.higherThan(new Priority("normal"))
   ).length;
 
   return highPriorityCount;
