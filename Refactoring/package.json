@@ -13,6 +13,6 @@
   },
   "scripts": {
     "start": "nodemon",
-    "test": "nodemon --exec 'mocha ${0}'"
+    "test": "nodemon --exec \"mocha ${0}\""
   }
 }

@@ -3,7 +3,7 @@
 ## How to Run
 
 ```
-yarn start --exec "mocha ch-04/province.test.js"
+yarn test ch-04/province.test.js
 ```
 
 ## Tips
