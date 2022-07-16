@@ -5,11 +5,15 @@ class Order {
   }
 
   get priority() {
-    return this.#priority.toString();
+    return this.#priority;
   }
 
   set priority(aString) {
     this.#priority = new Priority(aString);
+  }
+
+  get priorityString() {
+    return this.#priority.toString();
   }
 }
 
@@ -33,7 +37,7 @@ const client1 = () => {
   ].map((o) => new Order(o));
 
   const highPriorityCount = orders.filter(
-    (o) => o.priority === "high" || o.priority === "rush"
+    (o) => o.priorityString === "high" || o.priorityString === "rush"
   ).length;
 
   return highPriorityCount;
