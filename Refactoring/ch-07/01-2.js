@@ -12,17 +12,15 @@ class CustomerData {
   }
 
   setUsage(customerId, year, month, amount) {
-    this.#data[customerId].usages[year][month] = amount;
-  }
-
-  get rawData() {
-    return cloneDeep(this.#data);
+    const newData = cloneDeep(this.#data);
+    newData[customerId].usages[year][month] = amount;
+    this.#data = newData;
   }
 }
 
 let customerData = new CustomerData(readJSON("ch-07/01-2.json"));
 
-const getCustomerData = () => customerData;
+export const getCustomerData = () => customerData;
 
 export const writeData = (customerId, year, month, amount) => {
   getCustomerData().setUsage(customerId, year, month, amount);
