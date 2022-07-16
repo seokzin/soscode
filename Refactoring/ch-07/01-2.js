@@ -1,9 +1,17 @@
 import { readJSON } from "../fileController.js";
 
-let customerData = readJSON("ch-07/01-2.json");
-const getRawDataOfCustomers = () => customerData;
+class CustomerData {
+  _data;
+  constructor(data) {
+    this._data = data;
+  }
+}
+let customerData = new CustomerData(readJSON("ch-07/01-2.json"));
+
+const getCustomerData = () => customerData;
+export const getRawDataOfCustomers = () => customerData._data;
 const setRawDataOfCustomers = (arg) => {
-  customerData = arg;
+  customerData = new CustomerData(arg);
 };
 
 export const writeData = (customerId, year, month, amount) => {
