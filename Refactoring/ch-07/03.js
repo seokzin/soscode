@@ -5,11 +5,22 @@ class Order {
   }
 
   get priority() {
-    return this.#priority;
+    return this.#priority.toString();
   }
 
   set priority(aString) {
-    this.#priority = aString;
+    this.#priority = new Priority(aString);
+  }
+}
+
+class Priority {
+  #value;
+  constructor(value) {
+    this.#value = value;
+  }
+
+  toString() {
+    return this.#value;
   }
 }
 
