@@ -20,26 +20,26 @@ class Person {
 }
 
 class TelephoneNumber {
-  #officeAreaCode;
-  #officeNumber;
+  #areaCode;
+  #number;
 
-  get officeAreaCode() {
-    return this.#officeAreaCode;
+  get areaCode() {
+    return this.#areaCode;
   }
 
-  set officeAreaCode(arg) {
-    this.#officeAreaCode = arg;
+  set areaCode(arg) {
+    this.#areaCode = arg;
   }
 
-  get officeNumber() {
-    return this.#officeNumber;
+  get number() {
+    return this.#number;
   }
 
-  set officeNumber(arg) {
-    this.#officeNumber = arg;
+  set number(arg) {
+    this.#number = arg;
   }
 
   get telephoneNumber() {
-    return `(${this.officeAreaCode}) ${this.officeNumber}`;
+    return `(${this.areaCode}) ${this.number}`;
   }
 }
