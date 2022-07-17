@@ -1,6 +1,6 @@
 const distance = (p1, p2) => Math.abs(p1 - p2);
 
-const calculateDistance = (points) => {
+const totalDistance = (points) => {
   let result = 0;
 
   for (let i = 1; i < points.length; i++) {
@@ -14,12 +14,11 @@ const trackSummary = (points) => {
   const calculateTime = () => 10000;
 
   const totalTime = calculateTime();
-  const totalDistance = calculateDistance(points);
-  const pace = totalTime / 60 / totalDistance;
+  const pace = totalTime / 60 / totalDistance(points);
 
   return {
     time: totalTime,
-    distance: totalDistance,
+    distance: totalDistance(points),
     pace,
   };
 };
