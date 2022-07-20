@@ -1,0 +1,3 @@
+function somethingDangerous() {}
+
+export default {}
