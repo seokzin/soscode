@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ToDoItem /> renders component correctly 1`] = `
+.c2 {
+  text-align: center;
+  background-color: #FF1744;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.c2:hover {
+  background-color: #F01440;
+}
+
+.c2:active {
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2);
+}
+
+.c3 {
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #BDBDBD;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+}
+
+.c1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      default value
+    </div>
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        삭제
+      </div>
+    </div>
+  </div>
+</div>
+`;

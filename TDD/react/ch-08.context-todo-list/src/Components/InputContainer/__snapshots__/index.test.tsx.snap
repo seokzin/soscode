@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InputContainer /> renders component correctly 1`] = `
+.c2 {
+  text-align: center;
+  background-color: #304FFE;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.c2:hover {
+  background-color: #1E40FF;
+}
+
+.c2:active {
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2);
+}
+
+.c3 {
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.c1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 16px;
+  padding: 10px 10px;
+  border-radius: 8px;
+  border: 1px solid #BDBDBD;
+  outline: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <input
+      class="c1"
+      placeholder="할 일을 입력해 주세요"
+      value=""
+    />
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        추가
+      </div>
+    </div>
+  </div>
+</div>
+`;

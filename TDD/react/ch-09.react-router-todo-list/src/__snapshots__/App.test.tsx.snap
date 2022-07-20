@@ -1,0 +1,543 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> goes to Add page and go back to List page 1`] = `
+.c7 {
+  text-align: center;
+  background-color: #304FFE;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.c7:hover {
+  background-color: #1E40FF;
+}
+
+.c7:active {
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2);
+}
+
+.c8 {
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.c6 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 16px;
+  padding: 10px 10px;
+  border-radius: 8px;
+  border: 1px solid #BDBDBD;
+  outline: none;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #1E40FF;
+}
+
+.c2 {
+  padding: 20px;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.c3 {
+  padding: 20px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: absolute;
+  left: 20px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #FFFFFF;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 {
+  min-height: 100vh;
+  background-color: #EEEEEE;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      >
+        할 일 추가
+      </div>
+      <a
+        class="c3"
+        href="/"
+      >
+        돌아가기
+      </a>
+    </div>
+    <div
+      class="c4"
+    >
+      <div
+        class="c5"
+      >
+        <input
+          class="c6"
+          placeholder="할 일을 입력해 주세요"
+          value=""
+        />
+        <div
+          class="c7"
+        >
+          <div
+            class="c8"
+          >
+            추가
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<App /> goes to Detail page and go back to List page 1`] = `
+.c6 {
+  text-align: center;
+  background-color: #FF1744;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.c6:hover {
+  background-color: #F01440;
+}
+
+.c6:active {
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2);
+}
+
+.c7 {
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.c1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #1E40FF;
+}
+
+.c2 {
+  padding: 20px;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.c3 {
+  padding: 20px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: absolute;
+  left: 20px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c5 {
+  min-width: 350px;
+  height: 350px;
+  overflow-y: auto;
+  border: 1px solid #BDBDBD;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.c0 {
+  min-height: 100vh;
+  background-color: #EEEEEE;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      >
+        할 일 상세
+      </div>
+      <a
+        class="c3"
+        href="/"
+      >
+        돌아가기
+      </a>
+    </div>
+    <div
+      class="c4"
+    >
+      <div
+        class="c5"
+      >
+        ToDo 1
+      </div>
+      <div
+        class="c6"
+      >
+        <div
+          class="c7"
+        >
+          삭제
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<App /> renders component correctly 1`] = `
+.c4 {
+  min-width: 350px;
+  height: 400px;
+  overflow-y: scroll;
+  border: 1px solid #BDBDBD;
+  margin-bottom: 20px;
+}
+
+.c1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #1E40FF;
+}
+
+.c2 {
+  padding: 20px;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #FFFFFF;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c5 {
+  font-size: 20px;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  cursor: pointer;
+  position: absolute;
+  bottom: -30px;
+  background-color: #304FFE;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c5:hover {
+  background-color: #1E40FF;
+}
+
+.c5:active {
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2);
+}
+
+.c0 {
+  min-height: 100vh;
+  background-color: #EEEEEE;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      >
+        할 일 목록
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      <div
+        class="c4"
+        data-testid="toDoList"
+      />
+      <a
+        class="c5"
+        href="/add"
+      >
+        +
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<App /> shows Not Found page if the user enters the wrong URL, and go back to List page 1`] = `
+.c1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #1E40FF;
+}
+
+.c2 {
+  padding: 20px;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.c3 {
+  padding: 20px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: absolute;
+  left: 20px;
+}
+
+.c4 {
+  font-size: 20px;
+}
+
+.c0 {
+  min-height: 100vh;
+  background-color: #EEEEEE;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      >
+        에러
+      </div>
+      <a
+        class="c3"
+        href="/"
+      >
+        돌아가기
+      </a>
+    </div>
+    <div
+      class="c4"
+    >
+      Not Found 😿
+    </div>
+  </div>
+</div>
+`;
