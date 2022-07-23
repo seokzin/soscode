@@ -8,11 +8,18 @@ import {
   Query,
 } from '@nestjs/common';
 
+import { MoviesService } from './movies.service';
+
 @Controller('movies')
 export class MoviesController {
+  #moviesService: MoviesService;
+  constructor(readonly moviesService: MoviesService) {
+    this.#moviesService = moviesService;
+  }
+
   @Get()
   getAll() {
-    return 'This return all movies';
+    return this.moviesService.getAll();
   }
 
   @Get('search')
@@ -22,7 +29,7 @@ export class MoviesController {
 
   @Get(':id')
   getOne(@Param('id') movieId: string) {
-    return `This return one movie with the id: ${movieId}`;
+    return this.moviesService.getOne(movieId);
   }
 
   @Post()
