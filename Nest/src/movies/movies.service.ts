@@ -15,7 +15,7 @@ export class MoviesService {
   }
 
   deleteOne(id: string) {
-    this.#movies.filter((movie) => movie.id !== Number(id));
+    this.#movies = this.#movies.filter((movie) => movie.id !== Number(id));
   }
 
   create(movieData) {
