@@ -62,7 +62,7 @@ describe('MoviesService', () => {
       expect(afterDelete).toBeLessThan(beforeDelete);
     });
 
-    it('should return a 404', () => {
+    it('should throw a NotFoundException', () => {
       try {
         service.deleteOne(999);
       } catch (e) {
@@ -98,7 +98,7 @@ describe('MoviesService', () => {
       expect(movie.title).toEqual('Updated Test');
     });
 
-    it('should return a 404', () => {
+    it('should throw a NotFoundException', () => {
       try {
         service.update(999, {});
       } catch (e) {
