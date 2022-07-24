@@ -9,15 +9,32 @@
 
 ## Keywords
 
+### Structure
+
 - module
   - 데이터 구조 구축의 시작점. 메타 데이터 제공
 - controller
   - URL을 받와 함수 리턴
 - service
   - 실제 비즈니스 로직 구현
+
+### SW
+
 - DTO (Data Transfer Object)
   - 데이터 전송을 위한 객체
   - 효율적 Validation
 - DI (Dependency Injection)
   - 필요한 객체를 직접 생성이 아닌 외부로부터 주입받는 기법
   - DIP 법칙과 함께 의존성을 줄여주는 기법
+
+### Test
+
+테스트 환경을 실제 환경과 맞출 것
+
+- Unit
+- E2E
+- HTTP status
+  - 200: OK
+  - 201: Created
+  - 400: Bad Request
+  - 404: Not Found
