@@ -20,26 +20,26 @@ export class MoviesController {
 
   @Get()
   getAll() {
-    return this.moviesService.getAll();
+    return this.#moviesService.getAll();
   }
 
   @Get(':id')
   getOne(@Param('id') movieId: number) {
-    return this.moviesService.getOne(movieId);
+    return this.#moviesService.getOne(movieId);
   }
 
   @Post()
   create(@Body() movieData: CreateMovieDto) {
-    return this.moviesService.create(movieData);
+    return this.#moviesService.create(movieData);
   }
 
   @Delete(':id')
   remove(@Param('id') movieId: number) {
-    return this.moviesService.deleteOne(movieId);
+    return this.#moviesService.deleteOne(movieId);
   }
 
   @Patch(':id')
   patch(@Param('id') movieId: number, @Body() updateData) {
-    return this.moviesService.update(movieId, updateData);
+    return this.#moviesService.update(movieId, updateData);
   }
 }
