@@ -1,5 +1,10 @@
 # Keywords
 
+## Functional Programming
+
+- 순수 함수 → 안전성
+- 조합성 강조 → 모듈화 + 생산성
+
 ## generator function
 
 - `function*` 으로 선언
@@ -25,6 +30,17 @@
 
 -
 -
+
+## 다형성
+
+- 외부 다형성
+  - arrayLike (arguments, NodeList..)
+  - 들어오는 데이터를 length, key로 추상화하여 다형성
+- 내부 다형성
+  - 보조 함수를 통해
+    - predi : 조건 역할의 함수
+    - iter : 반복 실행 목적의 함수
+    - mapper : 매핑 목적의 함수
 
 # Reference
 
