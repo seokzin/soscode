@@ -26,10 +26,14 @@
 - 순회가 가능한 객체
 - 일반 객체보다 추상화 레벨이 높음
 
-## 지연 평가
+## 지연 평가(Lazy evaluation)
 
--
--
+- 계산의 결과 값이 필요할 때까지 계산을 늦추는 기법
+- 평가 대상이 클수록 효과가 커짐 → 불필요한 계산을 하지 않기 때문
+- 엄격한 평가 : 평가 흐름이 좌 → 우
+  ![image](https://user-images.githubusercontent.com/43740455/181026935-da7d53c5-8df7-469b-afa6-3d218e76c401.png)
+- 지연 평가 : 평가 흐름이 상 → 하
+  ![image](https://user-images.githubusercontent.com/43740455/181026996-03c9da29-a641-4ee8-bb5c-37944acf5d63.png)
 
 ## 다형성
 
