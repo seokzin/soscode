@@ -5,9 +5,24 @@
 - 순수 함수 → 안전성
 - 조합성 강조 → 모듈화 + 생산성
 
-## generator function
+## iterable / iterator
 
-- `function*` 으로 선언
+- 순회가 가능한 객체 (일반 객체보다 추상화 레벨이 높음)
+- iterator를 리턴하는 `[Symbol.iterator]()`를 가진 값
+
+  - iterator: `{ value, done }` 객체를 리턴하는 `next()`를 가진 값
+  - `next()`: 호출시 가장 가까운 `yield <value>`문을 만날 때까지 실행을 지속. 이후 `yield <value>`를 만나면 실행을 멈추고 다음 객체를 반환
+  - iterable/iterator 프로토콜: iterable `for...of`, 전개 연산자 등과 함께 동작하도록 한 규약
+
+- well-formed iterable
+  - `iter[Symbol.iterator]() === iter` // true
+  - iterator 자신을 반환하는 Symbol.iterator를 가지고 있을 때
+
+## generator
+
+- iterator를 리턴하는 함수
+- `function*` 으로 generator function 선언
+- 문장을 통해 순회할 수 있는 값을 만들 수 있다. → 어떠한 값도 generator를 통해 순회할 수 있는 형태로 만들 수 있다.
 
 - 일반 함수와 달리 코드가 실행되지 않고, 대신 실행을 처리하는 특별 객체 **제너레이터 객체**를 반환
 
@@ -18,19 +33,6 @@
   - 불필요한 계산을 하지 않으므로 빠른 계산이 가능하다.
   - 무한 자료 구조를 사용 할 수 있다.
   - 복잡한 수식에서 오류 상태를 피할 수 있다.
-
-## iterable / iterator
-
-- 순회가 가능한 객체 (일반 객체보다 추상화 레벨이 높음)
-- 이터레이터를 리턴하는 `[Symbol.iterator]()`를 가진 값
-
-  - iterator: `{ value, done }` 객체를 리턴하는 `next()`를 가진 값
-  - `next()`: 호출시 가장 가까운 `yield <value>`문을 만날 때까지 실행을 지속. 이후 `yield <value>`를 만나면 실행을 멈추고 다음 객체를 반환
-  - 이터러블/이터레이터 프로토콜: 이터러블을 `for...of`, 전개 연산자 등과 함께 동작하도록 한 규약
-
-- well-formed iterable
-  - `iter[Symbol.iterator]() === iter` // true
-  - 이터레이터가 자신을 반환하는 Symbol.iterator를 가지고 있을 때
 
 ## 일급 함수
 
