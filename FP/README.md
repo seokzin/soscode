@@ -28,6 +28,10 @@
   - `next()`: 호출시 가장 가까운 `yield <value>`문을 만날 때까지 실행을 지속. 이후 `yield <value>`를 만나면 실행을 멈추고 다음 객체를 반환
   - 이터러블/이터레이터 프로토콜: 이터러블을 `for...of`, 전개 연산자 등과 함께 동작하도록 한 규약
 
+- well-formed iterable
+  - `iter[Symbol.iterator]() === iter` // true
+  - 이터레이터가 자신을 반환하는 Symbol.iterator를 가지고 있을 때
+
 ## 일급 함수
 
 - 함수를 값으로 다룰 수 있다.
