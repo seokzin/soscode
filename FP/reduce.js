@@ -58,3 +58,12 @@ export const reduce = curry((f, acc, iter) => {
 //   (prices) => reduce(add, prices),
 //   log
 // ); // 30000
+
+//// curry 함수 도입 → 파라미터 주입을 생략할 수 있음
+// go(
+//   products,
+//   filter((p) => p.price < 20000),
+//   map((p) => p.price),
+//   reduce(add),
+//   log
+// ); // 30000
