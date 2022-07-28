@@ -1,3 +1,4 @@
+import { go } from "./go.js";
 import { map } from "./map.js";
 import { filter } from "./filter.js";
 import { curry } from "./curry.js";
@@ -45,4 +46,12 @@ export const reduce = curry(function (f, acc, iter) {
 //       map((p) => p.price, products)
 //     )
 //   )
+// ); // 30000
+
+// go(
+//   products,
+//   (products) => filter((p) => p.price < 20000, products),
+//   (products) => map((p) => p.price, products),
+//   (prices) => reduce(add, prices),
+//   log
 // ); // 30000
