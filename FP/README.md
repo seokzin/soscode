@@ -47,6 +47,7 @@
 - 함수를 값으로 다루는 함수
   1. 함수를 인자로 받아서 실행하는 함수
   2. 함수를 만들어 리턴하는 함수 (클로저를 만들어 리턴하는 함수)
+- 값인 함수를 원하는 시점에 사용할 수 있다.
 
 ## 지연 평가(Lazy evaluation)
 
@@ -70,6 +71,14 @@
     - predi : 조건 역할의 함수
     - iter : 반복 실행 목적의 함수
     - mapper : 매핑 목적의 함수
+
+## 애매모호한 지식 (보충 예정)
+
+### map → 기존 Array helper methods 과의 차이점?
+
+- **외부 다형성**: Array 뿐 아니라 iterable Protocol을 만족해도 사용 가능 (NodeList 등..)
+- `array.map(f)`과 `map(f, array)`는 **패러다임**의 차이! → 전자는 객체지향, 후자는 함수형..?
+- iterable protocol을 허용하는 함수가 많아질수록 서로간의 결합성이 좋아진다.
 
 # Reference
 
