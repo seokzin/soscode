@@ -4,7 +4,7 @@ import { filter } from "./filter.js";
 import { curry } from "./curry.js";
 import { log, add } from "./utils.js";
 
-export const reduce = curry(function (f, acc, iter) {
+export const reduce = curry((f, acc, iter) => {
   if (!iter) {
     iter = acc[Symbol.iterator]();
     acc = iter.next().value;
@@ -28,6 +28,7 @@ export const reduce = curry(function (f, acc, iter) {
 //   { name: "상품E", price: 25000 },
 // ];
 
+// 장바구니 예시 1
 // log(
 //   reduce(
 //     add,
@@ -38,6 +39,7 @@ export const reduce = curry(function (f, acc, iter) {
 //   )
 // ); // 30000
 
+// 장바구니 예시 2
 // log(
 //   reduce(
 //     add,
@@ -48,6 +50,7 @@ export const reduce = curry(function (f, acc, iter) {
 //   )
 // ); // 30000
 
+//// go 함수 도입
 // go(
 //   products,
 //   (products) => filter((p) => p.price < 20000, products),

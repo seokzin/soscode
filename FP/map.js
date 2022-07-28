@@ -1,12 +1,12 @@
 import { curry } from "./curry.js";
 
-export const map = (f, iter) => {
+export const map = curry((f, iter) => {
   let res = [];
   for (const a of iter) {
     res.push(f(a));
   }
   return res;
-};
+});
 
 export const l_map = curry(function* (f, iter) {
   for (const a of iter) {

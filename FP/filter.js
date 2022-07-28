@@ -1,12 +1,12 @@
 import { curry } from "./curry.js";
 
-export const filter = (f, iter) => {
+export const filter = curry((f, iter) => {
   let res = [];
   for (const a of iter) {
     if (f(a)) res.push(a);
   }
   return res;
-};
+});
 
 export const l_filter = curry(function* (f, iter) {
   for (const a of iter) {
