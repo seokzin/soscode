@@ -1,7 +1,7 @@
 import { curry } from "./curry.js";
 
 export const reduce = curry(function (f, acc, iter) {
-  if (arguments.length === 2) {
+  if (!iter) {
     iter = acc[Symbol.iterator]();
     acc = iter.next().value;
   }
@@ -13,5 +13,5 @@ export const reduce = curry(function (f, acc, iter) {
   return acc;
 });
 
-// console.log(reduce((a, b) => a + b, 0, [1, 2, 3, 4, 5])); // 15
-// console.log(reduce((a, b) => a + b, [1, 2, 3, 4, 5])); // 15
+console.log(reduce((a, b) => a + b, 0, [1, 2, 3, 4, 5])); // 15
+console.log(reduce((a, b) => a + b, [1, 2, 3, 4, 5])); // 15
