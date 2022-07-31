@@ -1,15 +1,15 @@
-const createResource = () => ({})
-const availableResources = []
-const allocatedResources = []
+const createResource = () => ({});
+const availableResources = [];
+const allocatedResources = [];
 
 const func = () => {
-  let result
+  let result;
   if (availableResources.length === 0) {
-    result = createResource()
-    allocatedResources.push(result)
+    result = createResource();
   } else {
-    result = availableResources.pop()
-    allocatedResources.push(result)
+    result = availableResources.pop();
   }
-  return result
-}
+  allocatedResources.push(result);
+
+  return result;
+};
