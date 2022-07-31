@@ -12,22 +12,14 @@ const retrieveOrder = () => ({
 
 const chargeOrder = (charge) => console.log(charge);
 
-// 반복주문, 8개 주문시:
-// 기본요금50 + 주문액 100 * 8 = 850
-// threshold 초과 1개에 대한 할인액 20
-// 반복주문에 대한 추가할인액 20
-// result: 810
+const {
+  base: baseCharge,
+  unit: chargePerUnit,
+  discountThreshold,
+  discountFactor,
+} = retrievePricingPlan();
 
-const pricingPlan = retrievePricingPlan();
-const baseCharge = pricingPlan.base;
-const chargePerUnit = pricingPlan.unit;
-
-const order = retrieveOrder();
-const units = order.units;
-
-const discountableUnits = Math.max(units - pricingPlan.discountThreshold, 0);
-
-const discount =
-  discountableUnits * pricingPlan.discountFactor + (order.isRepeat ? 20 : 0);
-
+const { units, isRepeat } = retrieveOrder();
+const discountableUnits = Math.max(units - discountThreshold, 0);
+const discount = discountableUnits * discountFactor + (isRepeat ? 20 : 0);
 chargeOrder(baseCharge + units * chargePerUnit - discount);
