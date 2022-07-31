@@ -1,6 +1,3 @@
-const renderPhoto = (aPhoto) => {
-  return `<img src="${aPhoto.url}" />`;
-};
 const emitPhotoData = (aPhoto) =>
   [
     `<p>제목: ${aPhoto.title}</p>`,
@@ -11,7 +8,7 @@ const emitPhotoData = (aPhoto) =>
 const renderPerson = (person) =>
   [
     `<p>${person.name}</p>`,
-    renderPhoto(person.photo),
+    `<img src="${person.photo.url}" />`,
     emitPhotoData(person.photo),
   ].join("\n");
 
@@ -23,5 +20,6 @@ const photo = {
   date: new Date(),
   url: "http://abc.com",
 };
+
 console.log("** renderPerson **\n", renderPerson({ name: "로이", photo }));
 console.log("\n** photoDiv **\n", photoDiv(photo));
