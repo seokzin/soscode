@@ -6,21 +6,10 @@ const PEOPLE = [
   { age: 27, salary: 3200 },
 ];
 
-const youngestAge = (people) => {
-  let result = people[0] ? people[0].age : Infinity;
-  for (const p of people) {
-    if (p.age < result) result = p.age;
-  }
-  return result;
-};
+const youngestAge = (people) => Math.min(...people.map((p) => p.age));
 
-const totalSalary = (people) => {
-  let result = 0;
-  for (const p of people) {
-    result += p.salary;
-  }
-  return result;
-};
+const totalSalary = (people) =>
+  people.reduce((salary, p) => salary + p.salary, 0);
 
 const getInfos = (people) =>
   `최연소: ${youngestAge(people)}, 총급여: ${totalSalary(people)}`;
