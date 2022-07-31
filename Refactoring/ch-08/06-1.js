@@ -25,13 +25,9 @@ const chargePerUnit = pricingPlan.unit;
 const order = retrieveOrder();
 const units = order.units;
 
-let discountableUnits = Math.max(units - pricingPlan.discountThreshold, 0);
+const discountableUnits = Math.max(units - pricingPlan.discountThreshold, 0);
 
-let discount;
-discount = discountableUnits * pricingPlan.discountFactor;
+const discount =
+  discountableUnits * pricingPlan.discountFactor + (order.isRepeat ? 20 : 0);
 
-if (order.isRepeat) discount += 20;
-let charge;
-charge = baseCharge + units * chargePerUnit;
-charge = charge - discount;
-chargeOrder(charge);
+chargeOrder(baseCharge + units * chargePerUnit - discount);
