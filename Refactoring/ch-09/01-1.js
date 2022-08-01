@@ -5,12 +5,14 @@ const scenario = {
   delay: 40,
 };
 
+const getDistance = (acc, time) => 0.5 * acc * time ** 2;
+
 const primary = (delay, primaryForce, mass, time) => {
   const primaryAcceleration = primaryForce / mass; // (a = F / m)
   const primaryTime = Math.min(time, delay);
   return {
     primaryAcceleration,
-    primaryResult: 0.5 * primaryAcceleration * primaryTime ** 2,
+    primaryResult: getDistance(primaryAcceleration, primaryTime),
   };
 };
 
@@ -32,7 +34,7 @@ const distanceTravelled = (
   return (
     primaryResult +
     primaryVelocity * secondaryTime +
-    0.5 * secondaryAcceleration * secondaryTime ** 2
+    getDistance(secondaryAcceleration, secondaryTime)
   );
 };
 
