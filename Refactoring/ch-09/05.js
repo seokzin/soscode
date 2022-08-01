@@ -1,24 +1,37 @@
 class Customer {
-  #id
+  #id;
   constructor(id) {
-    this.#id = id
+    this.#id = id;
   }
+
   get id() {
-    return this.#id
+    return this.#id;
   }
 }
 
 class Order {
-  #number
-  #customer
-  constructor(data) {
-    this.#number = data.number
-    this.#customer = new Customer(data.customer)
+  #number;
+  #customer;
+  constructor({ number, customer }) {
+    this.#number = number;
+    this.#customer = registerCustomer(customer);
   }
+
   get customer() {
-    return this.#customer
+    return findCustomer(this.#customer);
   }
 }
 
-const o = new Order({ number: 1, customer: 'a' })
-console.log(o.customer.id)
+const _repositoryData = { customers: new Map() };
+
+const findCustomer = (id) => _repositoryData.customers.get(id);
+
+const registerCustomer = (id) => {
+  if (!_repositoryData.customers.has(id)) {
+    _repositoryData.customers.set(id, new Customer(id));
+  }
+  return findCustomer;
+};
+
+const o = new Order({ number: 1, customer: "a" });
+console.log(o.customer.id);
