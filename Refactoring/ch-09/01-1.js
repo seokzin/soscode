@@ -29,12 +29,10 @@ const distanceTravelled = (
   const secondaryTime = time - delay;
   if (secondaryTime <= 0) return primaryResult;
 
-  const primaryVelocity = primaryAcceleration * delay;
-  const secondaryAcceleration = (primaryForce + secondaryForce) / mass;
   return (
     primaryResult +
-    primaryVelocity * secondaryTime +
-    getDistance(secondaryAcceleration, secondaryTime)
+    primaryAcceleration * delay * secondaryTime +
+    getDistance((primaryForce + secondaryForce) / mass, secondaryTime)
   );
 };
 
