@@ -1,45 +1,71 @@
-const registry = { billingPlans: { basic: '' } }
+const registry = { billingPlans: { basic: "" } };
 class Site {
-  _customer
+  _customer;
+
   get customer() {
-    return this._customer
+    return this._customer;
   }
 }
 
 class Customer {
-  _name
-  _billingPlan
-  _paymentHistory
+  _name;
+  _billingPlan;
+  _paymentHistory;
+
   get name() {
-    return this._name
+    return this._name;
   }
+
+  get isUnknown() {
+    return false;
+  }
+
   get billingPlan() {
-    return this._billingPlan
+    return this._billingPlan;
   }
+
   set billingPlan(arg) {
-    this._billingPlan = arg
+    this._billingPlan = arg;
   }
+
   get paymentHistory() {
-    return this._paymentHistory
+    return this._paymentHistory;
   }
 }
 
+class UnknownCustomer {
+  get isUnknown() {
+    return true;
+  }
+}
+
+const isUnknown = (arg) => {
+  if (!(arg instanceof Customer) && arg !== "미확인 고객") {
+    throw new Error(`잘못된 값과 비교: <${arg}>`);
+  }
+  return arg === "미확인 고객";
+};
+
 const client1 = () => {
-  const customer = new Site().customer
-  //...
-  let customerName
-  if (customer === '미확인 고객') customerName = '거주자'
-  else customerName = customer.name
-}
+  const customer = new Site().customer;
+  const customerName = isUnknown(customer) ? "거주자" : customer.name;
+};
+
 const client2 = () => {
-  const customer = new Site().customer
-  const plan = customer === '미확인 고객' ? registry.billingPlans.basic : customer.billingPlan
-}
+  const customer = new Site().customer;
+  const plan = isUnknown(customer)
+    ? registry.billingPlans.basic
+    : customer.billingPlan;
+};
+
 const client3 = () => {
-  const customer = new Site().customer
-  if (customer !== '미확인 고객') customer.billingPlan = 'new Plan'
-}
+  const customer = new Site().customer;
+  if (!isUnknown(customer)) customer.billingPlan = "new Plan";
+};
+
 const client4 = () => {
-  const customer = new Site().customer
-  const weeksDelinquent = customer === '미확인 고객' ? 0 : customer.paymentHsitry.weeksDelinquentInLastYear
-}
+  const customer = new Site().customer;
+  const weeksDelinquent = isUnknown(customer)
+    ? 0
+    : customer.paymentHsitry.weeksDelinquentInLastYear;
+};
