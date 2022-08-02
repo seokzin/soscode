@@ -51,7 +51,17 @@ class Rating {
   }
 }
 
-const rating = (voyage, history) => new Rating(voyage, history).value;
+class ExperiencedChinaRating extends Rating {}
+
+const createRating = (voyage, history) => {
+  if (voyage.zone === "중국" && this.history.some((v) => v.zone === "중국")) {
+    return new ExperiencedChinaRating(voyage, history);
+  }
+
+  return new Rating(voyage, history);
+};
+
+const rating = (voyage, history) => createRating(voyage, history).value;
 
 const voyage = { zone: "서인도", length: 10 };
 const histories = [
@@ -61,7 +71,7 @@ const histories = [
   { zone: "서아프리카", profit: 7 },
 ];
 
-const myRating = new Rating(voyage, histories);
+const myRating = createRating(voyage, histories);
 
 console.log({
   voyageRisk: myRating.voyageRisk,
