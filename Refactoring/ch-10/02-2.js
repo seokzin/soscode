@@ -1,6 +1,2 @@
-const func = anEmployee => {
-  if (anEmployee.onVacation) {
-    if (anEmployee.seniority > 10) return 1
-  }
-  return 0.5
-}
+const func = (anEmployee) =>
+  anEmployee.onVacation && anEmployee.seniority > 10 ? 1 : 0.5;
