@@ -49,6 +49,16 @@ class UnknownCustomer {
   }
 
   set billingPlan(arg) {}
+
+  get paymentHistory() {
+    return new NullPaymentHistory();
+  }
+}
+
+class NullPaymentHistory {
+  get weeksDelinquentInLastYear() {
+    return 0;
+  }
 }
 
 const isUnknown = (arg) => {
@@ -75,7 +85,5 @@ const client3 = () => {
 
 const client4 = () => {
   const customer = new Site().customer;
-  const weeksDelinquent = isUnknown(customer)
-    ? 0
-    : customer.paymentHistory.weeksDelinquentInLastYear;
+  const weeksDelinquent = customer.paymentHistory.weeksDelinquentInLastYear;
 };
