@@ -2,9 +2,12 @@ const registry = { billingPlans: { basic: "" } };
 
 const createUnknownCustomer = () => ({
   isUnknown: true,
+  name: "거주자",
+  billingPlan: registry.billingPlans.basic,
+  paymentHistory: {
+    weeksDelinquentInLastYear: 0,
+  },
 });
-
-const isUnknown = (arg) => arg.isUnknown;
 
 class Site {
   _customer;
@@ -42,21 +45,15 @@ class Customer {
 
 const client1 = () => {
   const customer = new Site().customer;
-  let customerName;
-  if (isUnknown(customer)) customerName = "거주자";
-  else customerName = customer.name;
+  const customerName = customer.name;
 };
 
 const client2 = () => {
   const customer = new Site().customer;
-  const plan = isUnknown(customer)
-    ? registry.billingPlans.basic
-    : customer.billingPlan;
+  const plan = customer.billingPlan;
 };
 
 const client3 = () => {
   const customer = new Site().customer;
-  const weeksDelinquent = isUnknown(customer)
-    ? 0
-    : customer.paymentHsitry.weeksDelinquentInLastYear;
+  const weeksDelinquent = customer.paymentHistory.weeksDelinquentInLastYear;
 };
