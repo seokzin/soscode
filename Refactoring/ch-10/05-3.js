@@ -30,26 +30,39 @@ class Site {
 
 const acquireSiteData = () => new Site();
 
-const isUnknown = (customer) => customer === "미확인 고객";
+const enrichSite = (site) => {
+  const res = cloneDeep(site);
+  const UnknownCustomer = {
+    isUnknown: true,
+    name: "거주자",
+    billingPlan: registry.billingPlans.basic,
+    paymentHistory: {
+      weeksDelinquentInLastYear: 0,
+    },
+  };
+  if (isUnknown(res.customer)) res.customer = UnknownCustomer;
+  else res.customer.isUnknown = false;
+  return res;
+};
+
+const isUnknown = (customer) => {
+  if (customer === "미확인 고객") return true;
+  return customer.isUnknown;
+};
 
 const client1 = () => {
-  const site = acquireSiteData();
+  const rawSite = acquireSiteData();
+  const site = enrichSite(rawSite);
   const customer = site.customer;
-  let customerName;
-  if (isUnknown(customer)) customerName = "거주자";
-  else customerName = customer.name;
+  const customerName = site.customer.name;
 };
 
 const client2 = () => {
   const customer = acquireSiteData().customer;
-  const plan = isUnknown(customer)
-    ? registry.billingPlans.basic
-    : customer.billingPlan;
+  const plan = customer.billingPlan;
 };
 
 const client3 = () => {
   const customer = acquireSiteData().customer;
-  const weeksDelinquent = isUnknown(customer)
-    ? 0
-    : customer.paymentHsitry.weeksDelinquentInLastYear;
+  const weeksDelinquent = customer.paymentHsitry.weeksDelinquentInLastYear;
 };
