@@ -1,35 +1,52 @@
 class ShippingRules {
-  data
+  data;
   constructor(data) {
-    this.data = data
+    this.data = data;
   }
 }
+
 const countryData = {
   shippingRules: {
     US: 10,
     CA: 7,
   },
-}
-const errorList = []
+};
 
-const localShippingRules = country => {
-  const data = countryData.shippingRules[country]
-  if (data) return new ShippingRules(data)
-  else return -23
-}
-const calculateShippingCosts = order => {
-  // 관련 없는 코드
-  const shippingRules = localShippingRules(order.country)
-  if (shippingRules < 0) return shippingRules
-  // 관련 없는 코드
-}
-const execute = order => {
-  const state = calculateShippingCosts(order)
-  if (state < 0) errorList.push({ order, errorCode: state })
+const errorList = [];
+
+class OrderProcessingError extends Error {
+  code;
+  constructor(errorCode) {
+    super(`주문 처리 오류${errorCode}`);
+    this.code = errorCode;
+  }
+
+  get name() {
+    return "OrderProcessingError";
+  }
 }
 
-execute({ country: 'US' })
-execute({ country: 'CA' })
-execute({ country: 'KO' })
+const localShippingRules = (country) => {
+  const data = countryData.shippingRules[country];
+  if (data) return new ShippingRules(data);
+  else throw new OrderProcessingError(-23);
+};
 
-console.log(errorList)
+const calculateShippingCosts = (order) => {
+  localShippingRules(order.country);
+};
+
+const execute = (order) => {
+  try {
+    calculateShippingCosts(order);
+  } catch (err) {
+    if (err instanceof OrderProcessingError) errorList.push({ order, errorCode: err.code });
+    else throw err;
+  }
+};
+
+execute({ country: "US" });
+execute({ country: "CA" });
+execute({ country: "KO" });
+
+console.log(errorList);
