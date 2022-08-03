@@ -15,14 +15,7 @@ const findMiscreant = (people) => {
 };
 
 const alertForMiscreant = (people) => {
-  for (const p of people) {
-    if (p === "조커") {
-      setOffAlarms();
-    }
-    if (p === "사루만") {
-      setOffAlarms();
-    }
-  }
+  if (findMiscreant(people) !== "") setOffAlarms();
   return;
 };
 
