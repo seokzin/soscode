@@ -2,6 +2,10 @@ class Score {
   #candidate;
   #medicalExam;
   #scoringGuide;
+  #result;
+  #healthLevel;
+  #highMedicalRiskFlag;
+  #certificationGrade;
   constructor(candidate, medicalExam, scoringGuide) {
     this.#candidate = candidate;
     this.#medicalExam = medicalExam;
@@ -9,20 +13,25 @@ class Score {
   }
 
   exec() {
-    let result = 0;
-    let healthLevel = 0;
-    let highMedicalRiskFlag = false;
+    this.#healthLevel = 0;
+    this.#highMedicalRiskFlag = false;
     if (this.#medicalExam.isSmoker) {
-      healthLevel += 10;
-      highMedicalRiskFlag = true;
+      this.#healthLevel += 10;
+      this.#highMedicalRiskFlag = true;
     }
-    let certificationGrade = "regular";
+
+    this.#result = 0;
+    this.#certificationGrade = "regular";
     if (this.#scoringGuide.stateWithLowCertification(this.#candidate.originState)) {
-      certificationGrade = "low";
-      result -= 5;
+      this.#certificationGrade = "low";
+      this.#result -= 5;
     }
-    result -= Math.max(healthLevel - 5, 0);
-    return { result, certificationGrade, highMedicalRiskFlag };
+    this.#result -= Math.max(this.#healthLevel - 5, 0);
+    return {
+      result: this.#result,
+      certificationGrade: this.#certificationGrade,
+      highMedicalRiskFlag: this.#highMedicalRiskFlag,
+    };
   }
 }
 
