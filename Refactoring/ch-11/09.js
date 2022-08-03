@@ -13,25 +13,32 @@ class Score {
   }
 
   exec() {
+    this.#result = 0;
     this.#healthLevel = 0;
     this.#highMedicalRiskFlag = false;
-    if (this.#medicalExam.isSmoker) {
-      this.#healthLevel += 10;
-      this.#highMedicalRiskFlag = true;
-    }
-
-    this.#result = 0;
-    this.#certificationGrade = "regular";
-    if (this.#scoringGuide.stateWithLowCertification(this.#candidate.originState)) {
-      this.#certificationGrade = "low";
-      this.#result -= 5;
-    }
+    this.scoreSmoking();
+    this.getCertificationGrade();
     this.#result -= Math.max(this.#healthLevel - 5, 0);
     return {
       result: this.#result,
       certificationGrade: this.#certificationGrade,
       highMedicalRiskFlag: this.#highMedicalRiskFlag,
     };
+  }
+
+  getCertificationGrade() {
+    this.#certificationGrade = "regular";
+    if (this.#scoringGuide.stateWithLowCertification(this.#candidate.originState)) {
+      this.#certificationGrade = "low";
+      this.#result -= 5;
+    }
+  }
+
+  scoreSmoking() {
+    if (this.#medicalExam.isSmoker) {
+      this.#healthLevel += 10;
+      this.#highMedicalRiskFlag = true;
+    }
   }
 }
 
