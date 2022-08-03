@@ -2,18 +2,8 @@ const setOffAlarms = () => {
   console.warn("악당을 찾았소");
 };
 
-const findMiscreant = (people) => {
-  for (const p of people) {
-    if (p === "조커") {
-      return "조커";
-    }
-    if (p === "사루만") {
-      return "사루만";
-    }
-  }
-  return "";
-};
-
+const findMiscreant = (people) =>
+  people.find((p) => ["조커", "사루만"].includes(p));
 const alertForMiscreant = (people) => {
   if (findMiscreant(people) !== "") setOffAlarms();
   return;
