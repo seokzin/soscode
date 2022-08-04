@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 class Booking {
   #show;
   #date;
+  _premiumDelegate;
   constructor(show, date) {
     this.#show = show;
     this.#date = date;
@@ -16,10 +17,6 @@ class Booking {
     return this.#show;
   }
 
-  get hasTalkback() {
-    return this.show.hasOwnProperty("talkback") && !this.isPeakDay;
-  }
-
   get basePrice() {
     let result = this.show.price;
     if (this.isPeakDay) result += Math.round(result * 0.15);
@@ -28,6 +25,10 @@ class Booking {
 
   get isPeakDay() {
     return this.date.isAfter(dayjs("2021-07-15")) && this.date.isBefore(dayjs("2021-07-31"));
+  }
+
+  _bePremium(extras) {
+    this._premiumDelegate = new PremiumBookingDelegate(this, extras);
   }
 }
 
@@ -51,8 +52,21 @@ class PremiumBooking extends Booking {
   }
 }
 
+class PremiumBookingDelegate {
+  _host;
+  _extras;
+  constructor(hostBooking, extras) {
+    this._host = hostBooking;
+    this._extras = extras;
+  }
+}
+
 const createBooking = (show, date) => new Booking(show, date);
-const createPremiumBooking = (show, date, extras) => new PremiumBooking(show, date, extras);
+const createPremiumBooking = (show, date, extras) => {
+  const res = new PremiumBooking(show, date, extras);
+  res._bePremium(extras);
+  return res;
+};
 
 const booking = createBooking({ price: 100, talkback: true }, dayjs("2021-07-11"));
 const premiumBooking1 = createPremiumBooking({ price: 100, talkback: true }, dayjs("2021-07-13"), {
