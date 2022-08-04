@@ -1,4 +1,10 @@
+class SubclassResponsibilityError extends Error {}
+
 class Party {
+  get monthlyCost() {
+    throw new SubclassResponsibilityError();
+  }
+
   get annualCost() {
     return this.monthlyCost * 12;
   }
