@@ -57,6 +57,24 @@ class EmployeeType {
   }
 }
 
+class Engineer extends EmployeeType {
+  toString() {
+    return "engineer";
+  }
+}
+
+class Manager extends EmployeeType {
+  toString() {
+    return "manager";
+  }
+}
+
+class Salesperson extends EmployeeType {
+  toString() {
+    return "salesperson";
+  }
+}
+
 console.log(new Employee("roy", "engineer").toString());
 console.log(new Employee("jay", "manager").toString());
 console.log(new Employee("kay", "salesperson").toString());
