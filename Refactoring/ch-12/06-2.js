@@ -21,7 +21,7 @@ class Employee {
   }
 
   set type(arg) {
-    this.#type = arg;
+    this.#type = Employee.createEmployeeType(arg);
   }
 
   get capitalizedType() {
@@ -30,6 +30,19 @@ class Employee {
 
   toString() {
     return `${this.#name} is a ${this.capitalizedType}`;
+  }
+
+  static createEmployeeType(str) {
+    switch (str) {
+      case "engineer":
+        return new Engineer();
+      case "salesperson":
+        return new Salesperson();
+      case "manager":
+        return new Manager();
+      default:
+        throw new Error(`${str}라는 직원 유형은 없습니다.`);
+    }
   }
 }
 
