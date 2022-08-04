@@ -17,7 +17,17 @@ class Booking {
     return this.#show;
   }
 
+  get hasTalkback() {
+    return this._premiumDelegate
+      ? this._premiumDelegate.hasTalkback
+      : this.show.hasOwnProperty("talkback") && !this.isPeakDay;
+  }
+
   get basePrice() {
+    return this._premiumDelegate ? this._premiumDelegate.basePrice : this._privateBasePrice;
+  }
+
+  get _privateBasePrice() {
     let result = this.show.price;
     if (this.isPeakDay) result += Math.round(result * 0.15);
     return result;
@@ -39,10 +49,6 @@ class PremiumBooking extends Booking {
     this.#extras = extras;
   }
 
-  get hasTalkback() {
-    return this.show.hasOwnProperty("talkback");
-  }
-
   get basePrice() {
     return Math.round(super.basePrice + this.#extras.premiumFee);
   }
@@ -58,6 +64,14 @@ class PremiumBookingDelegate {
   constructor(hostBooking, extras) {
     this._host = hostBooking;
     this._extras = extras;
+  }
+
+  get hasTalkback() {
+    return this._host.show.hasOwnProperty("talkback");
+  }
+
+  get basePrice() {
+    return Math.round(this._host._privateBasePrice + this._extras.premiumFee);
   }
 }
 
