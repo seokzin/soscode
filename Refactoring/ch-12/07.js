@@ -11,6 +11,10 @@ class Person {
   get genderCode() {
     return "X";
   }
+
+  get isMale() {
+    return this instanceof Male;
+  }
 }
 
 class Male extends Person {
@@ -37,5 +41,5 @@ const createPerson = (record) => {
 };
 
 const people = [new Male("재남"), new Female("지금"), new Male("로이"), new Female("이지")];
-const numberOfMales = people.filter((p) => p instanceof Male).length;
+const numberOfMales = people.filter((p) => p.isMale).length;
 console.log(numberOfMales);
