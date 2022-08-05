@@ -12,4 +12,4 @@
 - [Design Patterns](/Patterns)
 - [Refactoring](/Refactoring)
 - [TDD](/TDD)
-- [TypeScript](/TS)
+- [TypeScript](/TypeScript)
