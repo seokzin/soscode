@@ -1,11 +1,21 @@
-# Keywords
+# Functional Programming
 
-## Functional Programming
+## 🎯 Goals
+
+- 함수형 프로그래밍
+- 프론트엔드 함수형 프로그래밍
+
+<br />
+<br />
+
+## 🔎 Keywords
+
+### Functional Programming
 
 - 순수 함수 → 안전성
 - 조합성 강조 → 모듈화 + 생산성
 
-## iterable / iterator
+### iterable / iterator
 
 - 순회가 가능한 객체 (일반 객체보다 추상화 레벨이 높음)
 - iterator를 리턴하는 `[Symbol.iterator]()`를 가진 값
@@ -18,7 +28,7 @@
   - `iter[Symbol.iterator]() === iter` // true
   - iterator 자신을 반환하는 Symbol.iterator를 가지고 있을 때
 
-## generator
+### generator
 
 - iterator를 리턴하는 함수
 - `function*` 으로 generator function 선언
@@ -34,7 +44,7 @@
   - 무한 자료 구조를 사용 할 수 있다.
   - 복잡한 수식에서 오류 상태를 피할 수 있다.
 
-## 일급 함수
+### First-class function
 
 - 함수를 값으로 다룰 수 있다.
   - 변수에 할당
@@ -42,14 +52,14 @@
   - 객체의 리턴값
 - 조합성과 추상화의 도구
 
-## 고차 함수
+### Higher order function
 
 - 함수를 값으로 다루는 함수
   1. 함수를 인자로 받아서 실행하는 함수
   2. 함수를 만들어 리턴하는 함수 (클로저를 만들어 리턴하는 함수)
 - 값인 함수를 원하는 시점에 사용할 수 있다.
 
-## 지연 평가(Lazy evaluation)
+### Lazy evaluation
 
 - 계산의 결과 값이 필요할 때까지 계산을 늦추는 기법
 - 평가 대상이 클수록 효과가 커짐 → 불필요한 계산을 하지 않기 때문
@@ -61,7 +71,7 @@
 
   ![image](https://user-images.githubusercontent.com/43740455/181026996-03c9da29-a641-4ee8-bb5c-37944acf5d63.png)
 
-## 다형성
+### Polymorphism
 
 - 외부 다형성
   - arrayLike (arguments, NodeList..)
@@ -71,8 +81,6 @@
     - predi : 조건 역할의 함수
     - iter : 반복 실행 목적의 함수
     - mapper : 매핑 목적의 함수
-
-## 애매모호한 지식 (보충 예정)
 
 ### map → 기존 Array helper methods 과의 차이점?
 
@@ -92,7 +100,10 @@
   - 기존의 중첩 로직은 최하단부터 하나씩 올라오며 평가하기 때문
 - go와 pipe의 관계에서 useMemo와 useCallback의 유사함을 느낌 → 공부 예정
 
-# Reference
+<br />
+<br />
+
+## 💡 Ref
 
 - 함수형 프로그래밍과 JavaScript ES6+ (인프런/유인동)
 - 함수형 프로그래밍과 JavaScript ES6+ 응용편 (인프런/유인동)

@@ -1,14 +1,21 @@
-# Refactoring 2nd study
+# Refactoring 2nd
+
+## 🎯 Goals
 
 - Refactoring 2nd 예제를 직접 코딩하며 스터디
 - Why → How → What 순서로 흐름 정리
 
-## How to Run
+## 💻 How to Run
 
-```
+```shell
 yarn / yarn install
 yarn start ch-01/main.js
 ```
+
+<br />
+<br />
+
+## 🔎 Keywords
 
 ### VScode shortcuts
 
@@ -18,10 +25,5 @@ yarn start ch-01/main.js
   - `ctrl + K` : `ctrl + D`로 선택된 텍스트 취소
   - `ctrl + F2` : 동일한 텍스트 전부 선택
 
-- 리팩터링
-  - `ctrl + shift + R` : 리팩터링 옵션 (함수 추출..)
-
-## Ref
-
-- [리팩터링 2판](https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=236186172)
-- [리팩터링 스터디 (유튜브/정재남)](https://www.youtube.com/playlist?list=PLjQV3hketAJmyZmqXZ1OVEFNctalbf9SX)
+- 리팩토링
+  - `ctrl + shift + R` : 리팩토링 옵션

@@ -1,13 +1,16 @@
 # Nest.js
 
-## Goals
+## 🎯 Goals
 
 - Angular, Spring MVC 패턴의 간접 이해
 - 백엔드와 수월한 협업
 - OOP, IoC, DI 등의 개념 실전 이해
 - Test (Unit, E2E)
 
-## Keywords
+<br />
+<br />
+
+## 🔎 Keywords
 
 ### Structure
 
@@ -18,23 +21,12 @@
 - service
   - 실제 비즈니스 로직 구현
 
-### SW
+### DTO (Data Transfer Object)
 
-- DTO (Data Transfer Object)
-  - 데이터 전송을 위한 객체
-  - 효율적 Validation
-- DI (Dependency Injection)
-  - 필요한 객체를 직접 생성이 아닌 외부로부터 주입받는 기법
-  - DIP 법칙과 함께 의존성을 줄여주는 기법
+- 데이터 전송을 위한 객체
+- 효율적 Validation
 
-### Test
+### DI (Dependency Injection)
 
-테스트 환경을 실제 환경과 맞출 것
-
-- Unit
-- E2E
-- HTTP status
-  - 200: OK
-  - 201: Created
-  - 400: Bad Request
-  - 404: Not Found
+- 필요한 객체를 직접 생성이 아닌 외부로부터 주입받는 기법
+- DIP 법칙과 함께 의존성을 줄여주는 기법

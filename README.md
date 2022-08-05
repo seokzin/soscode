@@ -1,11 +1,15 @@
-# soscode
+# SO's CODE
 
 더 나은 코드를 위한 공부 기록
 
-## TOC
+<br />
+<br />
 
-- [함수형 프로그래밍](/FP)
+## 🧮 TOC
+
+- [Functional Programming](/FP)
 - [Nest.js](/Nest)
-- [리팩토링](/Refactoring)
+- [Design Patterns](/Patterns)
+- [Refactoring](/Refactoring)
 - [TDD](/TDD)
 - [TypeScript](/TS)
