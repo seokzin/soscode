@@ -1,12 +1,7 @@
-import { curry } from "./curry.js";
-
-export const filter = curry((f, iter) => {
-  let res = [];
-  for (const a of iter) {
-    if (f(a)) res.push(a);
-  }
-  return res;
-});
+import { curry } from './curry.js';
+import { pipe } from './pipe.js';
+import { take } from './take.js';
+import { log } from './log.js';
 
 export const l_filter = curry(function* (f, iter) {
   for (const a of iter) {
@@ -14,11 +9,22 @@ export const l_filter = curry(function* (f, iter) {
   }
 });
 
-const array = filter((x) => x > 2, [1, 2, 3, 4]);
-const generator = l_filter((x) => x > 2)([1, 2, 3, 4, 5]);
+const old_filter = curry((f, iter) => {
+  let res = [];
+  for (const a of iter) {
+    if (f(a)) res.push(a);
+  }
+  return res;
+});
 
-// console.log(generator); // Object [Generator] {}
-// console.log(generator.next()); // { value: 3, done: false }
-// console.log(generator.next()); // { value: 4, done: false }
-// console.log(generator.next()); // { value: 5, done: false }
-// console.log(generator.next()); // { value: undefined, done: true }
+export const filter = curry(pipe(l_filter, take(Infinity)));
+
+const generator = l_filter((x) => x > 2)([1, 2, 3, 4, 5]);
+const array = filter((x) => x > 2)([1, 2, 3, 4]);
+
+// log(generator); // Object [Generator] {}
+// log(array);
+// log(generator.next()); // { value: 3, done: false }
+// log(generator.next()); // { value: 4, done: false }
+// log(generator.next()); // { value: 5, done: false }
+// log(generator.next()); // { value: undefined, done: true }
