@@ -5,9 +5,7 @@ import { pipe } from './pipe.js';
 export const l_flatten = function* (iter) {
   for (const a of iter) {
     if (a && a[Symbol.iterator]) {
-      for (const b of a) {
-        yield b;
-      }
+      yield* a;
     } else {
       yield a;
     }
