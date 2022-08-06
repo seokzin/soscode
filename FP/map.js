@@ -1,5 +1,5 @@
 import { curry } from './curry.js';
-import { go } from './go.js';
+import { pipe } from './pipe.js';
 import { take } from './take.js';
 import { log } from './log.js';
 
@@ -17,7 +17,7 @@ const old_map = curry((f, iter) => {
   return res;
 });
 
-export const map = curry((f, iter) => go(iter, l_map(f), take(Infinity)));
+export const map = curry(pipe(l_map, take(Infinity)));
 
 const generator = l_map((x) => x ** 2)([1, 2, 3]);
 const array = map((x) => x ** 2, [1, 2, 3]);
