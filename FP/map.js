@@ -1,12 +1,7 @@
-import { curry } from "./curry.js";
-
-export const map = curry((f, iter) => {
-  let res = [];
-  for (const a of iter) {
-    res.push(f(a));
-  }
-  return res;
-});
+import { curry } from './curry.js';
+import { go } from './go.js';
+import { take } from './take.js';
+import { log } from './log.js';
 
 export const l_map = curry(function* (f, iter) {
   for (const a of iter) {
@@ -14,11 +9,21 @@ export const l_map = curry(function* (f, iter) {
   }
 });
 
-const array = map((x) => x ** 2, [1, 2, 3]);
-const generator = l_map((x) => x ** 2)([1, 2, 3]);
+const old_map = curry((f, iter) => {
+  let res = [];
+  for (const a of iter) {
+    res.push(f(a));
+  }
+  return res;
+});
 
-// console.log(generator); // Object [Generator] {}
-// console.log(generator.next()); // { value: 1, done: false }
-// console.log(generator.next()); // { value: 4, done: false }
-// console.log(generator.next()); // { value: 9, done: false }
-// console.log(generator.next()); // { value: undefined, done: true }
+export const map = curry((f, iter) => go(iter, l_map(f), take(Infinity)));
+
+const generator = l_map((x) => x ** 2)([1, 2, 3]);
+const array = map((x) => x ** 2, [1, 2, 3]);
+
+// log(generator); // Object [Generator] {}
+// log(generator.next()); // { value: 1, done: false }
+// log(generator.next()); // { value: 4, done: false }
+// log(generator.next()); // { value: 9, done: false }
+// log(generator.next()); // { value: undefined, done: true }
