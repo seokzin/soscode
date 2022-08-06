@@ -19,8 +19,8 @@ const old_map = curry((f, iter) => {
 
 export const map = curry(pipe(l_map, take(Infinity)));
 
-const generator = l_map((x) => x ** 2)([1, 2, 3]);
-const array = map((x) => x ** 2, [1, 2, 3]);
+// const generator = l_map((x) => x ** 2)([1, 2, 3]);
+// const array = map((x) => x ** 2, [1, 2, 3]);
 
 // log(generator); // Object [Generator] {}
 // log(generator.next()); // { value: 1, done: false }

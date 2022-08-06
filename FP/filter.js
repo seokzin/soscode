@@ -19,8 +19,8 @@ const old_filter = curry((f, iter) => {
 
 export const filter = curry(pipe(l_filter, take(Infinity)));
 
-const generator = l_filter((x) => x > 2)([1, 2, 3, 4, 5]);
-const array = filter((x) => x > 2)([1, 2, 3, 4]);
+// const generator = l_filter((x) => x > 2)([1, 2, 3, 4, 5]);
+// const array = filter((x) => x > 2)([1, 2, 3, 4]);
 
 // log(generator); // Object [Generator] {}
 // log(array);

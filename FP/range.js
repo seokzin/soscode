@@ -20,5 +20,5 @@ export const l_range = function* (l) {
   }
 };
 
-const list = l_range(5);
-log(reduce((a, b) => a + b, list));
+// const list = l_range(5);
+// log(reduce((a, b) => a + b, list));

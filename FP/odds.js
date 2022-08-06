@@ -4,9 +4,9 @@ export function* odds(l) {
   }
 }
 
-let iter = odds(6);
+// let iter = odds(6);
 
-log(iter.next()); // { value: 1, done: false }
-log(iter.next()); // { value: 3, done: false }
-log(iter.next()); // { value: 5, done: false }
-log(iter.next()); // { value: undefined, done: true }
+// log(iter.next()); // { value: 1, done: false }
+// log(iter.next()); // { value: 3, done: false }
+// log(iter.next()); // { value: 5, done: false }
+// log(iter.next()); // { value: undefined, done: true }

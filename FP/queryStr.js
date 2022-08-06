@@ -9,4 +9,4 @@ export const queryStr = pipe(
   join('&')
 );
 
-log(queryStr({ limit: 10, offset: 10, type: 'notice' }));
+// log(queryStr({ limit: 10, offset: 10, type: 'notice' }));
