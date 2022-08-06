@@ -1,9 +1,9 @@
-import { filter } from "./filter.js";
-import { map } from "./map.js";
-import { take } from "./take.js";
-import { reduce } from "./reduce.js";
-import { go } from "./go.js";
-import { log } from "./utils.js";
+import { filter } from './filter.js';
+import { map } from './map.js';
+import { take } from './take.js';
+import { reduce } from './reduce.js';
+import { go } from './go.js';
+import { log } from './log.js';
 
 export const flat = function* (iter) {
   for (const a of iter) {

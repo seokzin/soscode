@@ -1,4 +1,4 @@
-import { log } from "./utils.js";
+import { log } from './log.js';
 
 const iterable = {
   [Symbol.iterator]() {

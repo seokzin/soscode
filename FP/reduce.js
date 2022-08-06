@@ -1,8 +1,9 @@
-import { go } from "./go.js";
-import { map } from "./map.js";
-import { filter } from "./filter.js";
-import { curry } from "./curry.js";
-import { log, add } from "./utils.js";
+import { go } from './go.js';
+import { map } from './map.js';
+import { filter } from './filter.js';
+import { curry } from './curry.js';
+import { log } from './log.js';
+import { add } from './add.js';
 
 export const reduce = curry((f, acc, iter) => {
   if (!iter) {
