@@ -9,11 +9,9 @@ export const take = curry((length, iter) => {
     while (!(cur = iter.next()).done) {
       const a = cur.value;
       if (acc instanceof Promise)
-        return acc.then((a) => {
-          res.push(a);
-          if (res.length === l) return res;
-          return recur();
-        });
+        return acc.then((a) =>
+          (res.push(a), res).length === l ? res : recur()
+        );
       res.push(a);
       if (res.length === l) return res;
     }
