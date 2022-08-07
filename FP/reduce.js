@@ -5,17 +5,17 @@ import { curry } from './curry.js';
 import { log } from './log.js';
 import { add } from './add.js';
 
+const go1 = (a, f) => (a instanceof Promise ? a.then(f) : f(a));
+
 export const reduce = curry((f, acc, iter) => {
   if (!iter) {
     iter = acc[Symbol.iterator]();
     acc = iter.next().value;
+  } else {
+    iter = iter[Symbol.iterator]();
   }
 
-  for (const a of iter) {
-    acc = f(acc, a);
-  }
-
-  return (function recur(acc) {
+  return go1(acc, function recur(acc) {
     let cur;
     while (!(cur = iter.next()).done) {
       const a = cur.value;
@@ -23,7 +23,7 @@ export const reduce = curry((f, acc, iter) => {
       if (acc instanceof Promise) return acc.then(recur);
     }
     return acc;
-  })(acc);
+  });
 });
 
 // log(reduce((a, b) => a + b, 0, [1, 2, 3, 4, 5])); // 15
@@ -78,7 +78,7 @@ export const reduce = curry((f, acc, iter) => {
 // ); // 30000
 
 go(
-  1,
+  Promise.resolve(1),
   (a) => a + 10,
   (a) => Promise.resolve(a + 100),
   (a) => a + 1000,
