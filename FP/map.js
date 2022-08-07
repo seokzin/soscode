@@ -1,6 +1,6 @@
 import { curry } from './curry.js';
 import { pipe } from './pipe.js';
-import { take } from './take.js';
+import { c_take, take } from './take.js';
 import { go1 } from './go1.js';
 import { log } from './log.js';
 
@@ -19,6 +19,8 @@ const old_map = curry((f, iter) => {
 });
 
 export const map = curry(pipe(l_map, take(Infinity)));
+
+export const c_map = curry(pipe(l_map, c_take(Infinity)));
 
 // const generator = l_map((x) => x ** 2)([1, 2, 3]);
 // const array = map((x) => x ** 2, [1, 2, 3]);

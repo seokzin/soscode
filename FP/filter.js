@@ -1,7 +1,7 @@
 import { curry } from './curry.js';
 import { go1 } from './go1.js';
 import { pipe } from './pipe.js';
-import { take } from './take.js';
+import { c_take, take } from './take.js';
 import { log } from './log.js';
 
 const nop = Symbol('nop');
@@ -23,6 +23,8 @@ const old_filter = curry((f, iter) => {
 });
 
 export const filter = curry(pipe(l_filter, take(Infinity)));
+
+export const c_filter = curry(pipe(l_filter, c_take(Infinity)));
 
 // const generator = l_filter((x) => x > 2)([1, 2, 3, 4, 5]);
 // const array = filter((x) => x > 2)([1, 2, 3, 4]);
