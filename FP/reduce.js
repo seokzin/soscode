@@ -1,11 +1,10 @@
 import { go } from './go.js';
+import { go1 } from './go1.js';
 import { map } from './map.js';
 import { filter } from './filter.js';
 import { curry } from './curry.js';
 import { log } from './log.js';
 import { add } from './add.js';
-
-const go1 = (a, f) => (a instanceof Promise ? a.then(f) : f(a));
 
 export const reduce = curry((f, acc, iter) => {
   if (!iter) {
