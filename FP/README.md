@@ -123,6 +123,16 @@ Promise는 callback 지옥 해결을 넘은 근본적인 특징이 있음
 <br />
 <br />
 
+### Monad
+
+- 순수 함수를 활용한? 안전한 함수 합성 기법
+- Promise는 비동기 방식의 Monad
+  - Array → Promise / map → then으로 대체된 동일한 구조이기 때문
+  - 비동기적인 상황을 안전하게 합성하기 위한 도구
+
+<br />
+<br />
+
 ## 💡 Ref
 
 - 함수형 프로그래밍과 JavaScript ES6+ (인프런/유인동)
