@@ -15,7 +15,15 @@ export const reduce = curry((f, acc, iter) => {
     acc = f(acc, a);
   }
 
-  return acc;
+  return (function recur(acc) {
+    let cur;
+    while (!(cur = iter.next()).done) {
+      const a = cur.value;
+      acc = f(acc, a);
+      if (acc instanceof Promise) return acc.then(recur);
+    }
+    return acc;
+  })(acc);
 });
 
 // log(reduce((a, b) => a + b, 0, [1, 2, 3, 4, 5])); // 15
@@ -68,3 +76,12 @@ export const reduce = curry((f, acc, iter) => {
 //   reduce(add),
 //   log
 // ); // 30000
+
+go(
+  1,
+  (a) => a + 10,
+  (a) => Promise.resolve(a + 100),
+  (a) => a + 1000,
+  (a) => a + 10000,
+  log
+);
