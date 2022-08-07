@@ -147,6 +147,16 @@ Promise는 callback 지옥 해결을 넘은 근본적인 특징이 있음
 <br />
 <br />
 
+### async / await
+
+- 비동기 로직을 동기적(문장형)으로 사용
+- async 함수는 무조건 Promise를 리턴함
+- await 대상은 반드시 Promise를 리턴해야 함
+  - 비동기 로직이 끝난 뒤의 결과를 꺼내서 변수에 할당함
+
+<br />
+<br />
+
 ## 💡 Ref
 
 - 함수형 프로그래밍과 JavaScript ES6+ (인프런/유인동)
