@@ -1,11 +1,12 @@
 import { curry } from './curry.js';
 import { pipe } from './pipe.js';
 import { take } from './take.js';
+import { go1 } from './go1.js';
 import { log } from './log.js';
 
 export const l_map = curry(function* (f, iter) {
   for (const a of iter) {
-    yield f(a);
+    yield go1(a, f);
   }
 });
 
