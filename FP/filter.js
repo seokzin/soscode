@@ -4,10 +4,12 @@ import { pipe } from './pipe.js';
 import { take } from './take.js';
 import { log } from './log.js';
 
+const nop = Symbol('nop');
+
 export const l_filter = curry(function* (f, iter) {
   for (const a of iter) {
     const b = go1(a, f);
-    if (b instanceof Promise) yield b.ten((b) => (b ? a : Promise.reject()));
+    if (b instanceof Promise) yield b.ten((b) => (b ? a : Promise.reject(nop)));
     else if (b) yield a;
   }
 });

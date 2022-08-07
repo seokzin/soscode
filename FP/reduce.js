@@ -6,6 +6,14 @@ import { curry } from './curry.js';
 import { log } from './log.js';
 import { add } from './add.js';
 
+const reduceF = (acc, a, f) =>
+  a instanceof Promise
+    ? a.then(
+        (a) => f(acc, a),
+        (e) => (e === nop ? acc : Promise.reject(e))
+      )
+    : f(acc, a);
+
 export const reduce = curry((f, acc, iter) => {
   if (!iter) {
     iter = acc[Symbol.iterator]();
@@ -17,8 +25,7 @@ export const reduce = curry((f, acc, iter) => {
   return go1(acc, function recur(acc) {
     let cur;
     while (!(cur = iter.next()).done) {
-      const a = cur.value;
-      acc = f(acc, a);
+      acc = reduceF(acc, cur.value, f);
       if (acc instanceof Promise) return acc.then(recur);
     }
     return acc;

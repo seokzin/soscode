@@ -8,9 +8,11 @@ export const take = curry((length, iter) => {
     let cur;
     while (!(cur = iter.next()).done) {
       const a = cur.value;
-      if (acc instanceof Promise)
-        return acc.then((a) =>
-          (res.push(a), res).length === l ? res : recur()
+      if (a instanceof Promise)
+        return a.then((a) =>
+          (res.push(a), res).length === l
+            ? res
+            : recur().catch((e) => (e === nop ? recur() : Promise.reject(e)))
         );
       res.push(a);
       if (res.length === l) return res;
