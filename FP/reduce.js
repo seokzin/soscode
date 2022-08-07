@@ -2,6 +2,7 @@ import { go } from './go.js';
 import { go1 } from './go1.js';
 import { take } from './go1.js';
 import { curry } from './curry.js';
+import { catchNoop } from './catchNoop.js';
 import { log } from './log.js';
 import { map } from './map.js';
 import { filter } from './filter.js';
@@ -16,12 +17,6 @@ const reduceF = (acc, a, f) =>
     : f(acc, a);
 
 const head = (iter) => go1(take(1, iter), ([h]) => h);
-
-const noop = () => {};
-
-const catchNoop = (arr) => (
-  arr.forEach((a) => (a instanceof Promise ? a.catch(noop) : a)), arr
-);
 
 export const reduce = curry((f, acc, iter) => {
   if (!iter) return reduce(f, head((iter = acc[Symbol.iterator]())), iter);
