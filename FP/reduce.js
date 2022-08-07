@@ -1,9 +1,10 @@
 import { go } from './go.js';
 import { go1 } from './go1.js';
-import { map } from './map.js';
-import { filter } from './filter.js';
+import { take } from './go1.js';
 import { curry } from './curry.js';
 import { log } from './log.js';
+import { map } from './map.js';
+import { filter } from './filter.js';
 import { add } from './add.js';
 
 const reduceF = (acc, a, f) =>
@@ -14,13 +15,10 @@ const reduceF = (acc, a, f) =>
       )
     : f(acc, a);
 
+const head = (iter) => go1(take(1, iter), ([h]) => h);
+
 export const reduce = curry((f, acc, iter) => {
-  if (!iter) {
-    iter = acc[Symbol.iterator]();
-    acc = iter.next().value;
-  } else {
-    iter = iter[Symbol.iterator]();
-  }
+  if (!iter) return reduce(f, head((iter = acc[Symbol.iterator]())), iter);
 
   return go1(acc, function recur(acc) {
     let cur;
