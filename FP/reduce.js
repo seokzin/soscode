@@ -17,6 +17,12 @@ const reduceF = (acc, a, f) =>
 
 const head = (iter) => go1(take(1, iter), ([h]) => h);
 
+const noop = () => {};
+
+const catchNoop = (arr) => (
+  arr.forEach((a) => (a instanceof Promise ? a.catch(noop) : a)), arr
+);
+
 export const reduce = curry((f, acc, iter) => {
   if (!iter) return reduce(f, head((iter = acc[Symbol.iterator]())), iter);
 
@@ -28,6 +34,12 @@ export const reduce = curry((f, acc, iter) => {
     }
     return acc;
   });
+});
+
+export const c_reduce = curry((f, acc, iter) => {
+  const iter2 = catchNoop(iter ? [...iter] : [...acc]);
+
+  return iter ? reduce(f, acc, iter2) : reduce(f, iter2);
 });
 
 // log(reduce((a, b) => a + b, 0, [1, 2, 3, 4, 5])); // 15
