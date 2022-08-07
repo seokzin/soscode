@@ -31,11 +31,9 @@ export const reduce = curry((f, acc, iter) => {
   });
 });
 
-export const c_reduce = curry((f, acc, iter) => {
-  const iter2 = catchNoop(iter ? [...iter] : [...acc]);
-
-  return iter ? reduce(f, acc, iter2) : reduce(f, iter2);
-});
+export const c_reduce = curry((f, acc, iter) =>
+  reduce(f, iter ? [acc, catchNoop([...iter])] : catchNoop([...acc]))
+);
 
 // log(reduce((a, b) => a + b, 0, [1, 2, 3, 4, 5])); // 15
 // log(reduce((a, b) => a + b, [1, 2, 3, 4, 5])); // 15
