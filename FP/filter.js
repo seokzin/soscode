@@ -1,11 +1,14 @@
 import { curry } from './curry.js';
+import { go1 } from './go1.js';
 import { pipe } from './pipe.js';
 import { take } from './take.js';
 import { log } from './log.js';
 
 export const l_filter = curry(function* (f, iter) {
   for (const a of iter) {
-    if (f(a)) yield a;
+    const b = go1(a, f);
+    if (b instanceof Promise) yield b.ten((b) => (b ? a : Promise.reject()));
+    else if (b) yield a;
   }
 });
 
