@@ -1,4 +1,5 @@
 import { curry } from './curry.js';
+import { catchNoop } from './catchNoop.js';
 
 export const take = curry((length, iter) => {
   let res = [];
@@ -20,6 +21,8 @@ export const take = curry((length, iter) => {
     return acc;
   })();
 });
+
+export const c_take = curry((l, iter) => take(l, catchNoop([...iter])));
 
 // console.log(take(3)([1, 2, 3, 4, 5])); // [ 1, 2, 3 ]
 // console.log(take(Infinity)([1, 2, 3, 4, 5])); // [ 1, 2, 3, 4, 5 ]
