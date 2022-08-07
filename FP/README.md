@@ -111,6 +111,18 @@
 <br />
 <br />
 
+### Promise vs callback
+
+Promise는 callback 지옥 해결을 넘은 근본적인 특징이 있음
+
+- Promise
+  - **비동기 상황에 대한 값(Promise)을 반환!**
+  - 대기, 성공, 실패에 관련된 값을 가진 일급 객체
+  - 체이닝을 통해 다른 로직을 자유롭게 사용 가능
+
+<br />
+<br />
+
 ## 💡 Ref
 
 - 함수형 프로그래밍과 JavaScript ES6+ (인프런/유인동)
