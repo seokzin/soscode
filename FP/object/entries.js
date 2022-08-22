@@ -1,6 +1,6 @@
 import { log } from '../../log';
 
-const L = {};
+export const L = {};
 
 L.entries = function* (obj) {
   for (const k in obj) yield [k, obj[k]];
