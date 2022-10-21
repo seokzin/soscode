@@ -11,9 +11,10 @@ describe('useLocalStorage >', () => {
 
   it('should change the value', () => {
     const { result } = renderHook(() => useLocalStorage('key', ''));
+    const [, setValue] = result.current;
 
     act(() => {
-      result.current[1]('change');
+      setValue('change');
     });
 
     expect(localStorage.getItem('key')).toBe(`"change"`);

@@ -11,10 +11,13 @@ describe('useInput >', () => {
 
   it('should change the value', () => {
     const { result } = renderHook(() => useInput(''));
+    const [, onChange] = result.current;
 
     act(() => {
-      result.current[1]({
-        target: { value: 'change' },
+      onChange({
+        target: {
+          value: 'change',
+        },
       } as React.ChangeEvent<HTMLInputElement>);
     });
 
