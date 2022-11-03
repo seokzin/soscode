@@ -1,3 +1,0 @@
-function somethingDangerous() {}
-
-export default {}
