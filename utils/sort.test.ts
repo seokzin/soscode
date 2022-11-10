@@ -23,11 +23,11 @@ describe('sorts >', () => {
     expect(insertionSort(list)).toEqual(sortedList);
   });
 
-  it('return sorted list (mergeSort - nlogn)', () => {
+  it('should return sorted list (mergeSort - nlogn)', () => {
     expect(mergeSort(list)).toEqual(sortedList);
   });
 
-  it('return sorted list (quickSort - nlogn)', () => {
+  it('should return sorted list (quickSort - nlogn)', () => {
     expect(quickSort(list)).toEqual(sortedList);
   });
 });
