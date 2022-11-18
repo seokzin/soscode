@@ -1,4 +1,4 @@
-import compact from './compact';
+import { compact } from 'utils';
 
 describe('compact >', () => {
   it('should return an array without falsey values', () => {
