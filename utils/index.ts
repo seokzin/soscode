@@ -13,3 +13,5 @@ export { default as range } from './range';
 export * from './sort';
 export { default as twoPointer } from './twoPointer';
 export { default as yyyymmdd } from './yyyymmdd';
+export { default as compact } from './compact';
+export { default as pluck } from './pluck';
