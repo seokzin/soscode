@@ -1,5 +1,4 @@
-import { binarySearch } from './binarySearch';
-import { range } from './range';
+import { binarySearch, range } from 'utils';
 
 describe('binarySearch >', () => {
   it('should return index of target number', () => {

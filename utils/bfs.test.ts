@@ -1,4 +1,4 @@
-import { bfs } from './bfs';
+import { bfs } from 'utils';
 
 describe('bfs >', () => {
   const graph = {

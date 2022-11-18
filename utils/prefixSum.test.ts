@@ -1,5 +1,4 @@
-import { range } from './range';
-import { prefixSum } from './prefixSum';
+import { prefixSum, range } from 'utils';
 
 describe('prefixSum >', () => {
   it('should return prefix sum list', () => {

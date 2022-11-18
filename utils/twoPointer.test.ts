@@ -1,5 +1,4 @@
-import { range } from './range';
-import { twoPointer } from './twoPointer';
+import { twoPointer, range } from 'utils';
 
 describe('twoPointer >', () => {
   it('should return subarray of target sum', () => {

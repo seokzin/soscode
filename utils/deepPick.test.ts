@@ -1,4 +1,4 @@
-import { deepPick } from './deepPick';
+import { deepPick } from 'utils';
 
 describe('deepPick >', () => {
   const obj = {

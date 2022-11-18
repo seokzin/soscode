@@ -1,4 +1,4 @@
-import { prime } from './prime';
+import { prime } from 'utils';
 
 describe('prime >', () => {
   it('should return prime list', () => {

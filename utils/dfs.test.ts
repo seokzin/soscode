@@ -1,4 +1,4 @@
-import { dfsWithStack, dfsWithRecursion } from './dfs';
+import { dfsWithStack, dfsWithRecursion } from 'utils';
 
 describe('dfs >', () => {
   const graph = {

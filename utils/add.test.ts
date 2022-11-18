@@ -1,5 +1,4 @@
-import { add } from './add';
-import { range } from './range';
+import { add, range } from 'utils';
 
 describe('add >', () => {
   it('should return sum of two numbers', () => {

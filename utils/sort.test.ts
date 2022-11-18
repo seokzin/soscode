@@ -1,11 +1,11 @@
-import { range } from './range';
 import {
   bubbleSort,
   selectionSort,
   insertionSort,
   mergeSort,
   quickSort,
-} from './sort';
+  range,
+} from 'utils';
 
 describe('sorts >', () => {
   const list = range(100, 0, -1);

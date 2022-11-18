@@ -1,4 +1,4 @@
-import { isAnagram } from './isAnagram';
+import { isAnagram } from 'utils';
 
 describe('isAnagram >', () => {
   it('should return true if two strings are anagrams', () => {

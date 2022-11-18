@@ -1,4 +1,4 @@
-import { getAscii } from './getAscii';
+import { getAscii } from 'utils';
 
 describe('getAscii >', () => {
   it('should return ascii code of char', () => {
