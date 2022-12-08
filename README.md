@@ -6,3 +6,10 @@
 
 - TypeScript
 - Jest
+
+## TODO
+
+- jest 오류 해결
+- husky
+- npm 배포
+- mono repo
