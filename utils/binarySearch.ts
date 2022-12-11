@@ -4,6 +4,7 @@
  * @param callback - Callback function to compare
  * @returns Index of the number
  */
+
 const binarySearch = (list: number[], callback) => {
   let start = 0;
   let end = list.length - 1;

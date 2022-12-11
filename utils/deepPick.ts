@@ -1,3 +1,9 @@
+/**
+ * Extract a value from a nested object
+ * @param keys - The keys to extract
+ * @param obj - The object to extract from
+ */
+
 const deepPick = (keys: string, obj: Record<string, unknown>) => {
   const [first, ...rest] = keys.split('.');
 

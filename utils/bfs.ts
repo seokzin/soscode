@@ -4,6 +4,7 @@
  * @param node - Node to start search from
  * @returns Visited nodes
  */
+
 const bfs = (graph: { [key: string]: string[] }, node: string) => {
   const queue = [node];
   const visited = [];
