@@ -1,3 +1,9 @@
+/**
+ * Bubble sort (O(n^2))
+ * @param arr - Array to sort
+ * @returns Sorted array
+ */
+
 const bubbleSort = (arr: number[]) => {
   const result = [...arr];
 
@@ -11,6 +17,12 @@ const bubbleSort = (arr: number[]) => {
 
   return result;
 };
+
+/**
+ * Selection sort (O(n^2))
+ * @param arr - Array to sort
+ * @returns Sorted array
+ */
 
 const selectionSort = (arr: number[]) => {
   for (let i = 0; i < arr.length; i++) {
@@ -28,6 +40,12 @@ const selectionSort = (arr: number[]) => {
   return arr;
 };
 
+/**
+ * Insertion sort (O(n^2))
+ * @param arr - Array to sort
+ * @returns Sorted array
+ */
+
 const insertionSort = (arr: number[]) => {
   for (let i = 1; i < arr.length; i++) {
     const cur = arr[i];
@@ -44,6 +62,12 @@ const insertionSort = (arr: number[]) => {
   return arr;
 };
 
+/**
+ * Merge sort (O(nlogn))
+ * @param arr - Array to sort
+ * @returns Sorted array
+ */
+
 const mergeSort = (arr: number[]) => {
   if (arr.length <= 1) return arr;
 
@@ -53,6 +77,13 @@ const mergeSort = (arr: number[]) => {
 
   return merge(mergeSort(left), mergeSort(right));
 };
+
+/**
+ * Merge two sorted arrays
+ * @param left - Left array
+ * @param right - Right array
+ * @returns Merged array
+ */
 
 const merge = (left: number[], right: number[]) => {
   const result = [];
@@ -67,6 +98,12 @@ const merge = (left: number[], right: number[]) => {
 
   return [...result, ...left, ...right];
 };
+
+/**
+ * Quick sort (O(nlogn))
+ * @param arr Array to sort
+ * @returns Sorted array
+ */
 
 const quickSort = (arr: number[]) => {
   if (arr.length <= 1) return arr;

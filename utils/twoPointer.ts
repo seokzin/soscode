@@ -1,3 +1,10 @@
+/**
+ * Get all sub lists that sum to target
+ * @param list - List to search
+ * @param target - Target number
+ * @returns List of sub lists that sum to target
+ */
+
 const twoPointer = (list: number[], target: number) => {
   const result = [];
   let start = 0;

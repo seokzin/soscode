@@ -1,3 +1,9 @@
+/**
+ * Get ASCII value of a character
+ * @param char Character to get ASCII value
+ * @returns ASCII value (number)
+ */
+
 const getAscii = (char: string) => {
   if (char >= 'a' && char <= 'z') {
     return char.charCodeAt(0) - 96;

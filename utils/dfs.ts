@@ -1,3 +1,10 @@
+/**
+ * Depth-first search with stack
+ * @param graph - Graph to search
+ * @param node - Node to start search from
+ * @returns Visited node list
+ */
+
 const dfsWithStack = (graph: { [key: string]: string[] }, node: string) => {
   const stack = [node];
   const visited = [];
@@ -12,6 +19,13 @@ const dfsWithStack = (graph: { [key: string]: string[] }, node: string) => {
 
   return visited;
 };
+
+/**
+ * Depth-first search with recursion
+ * @param graph - Graph to search
+ * @param node - Node to start search from
+ * @returns Visited node list
+ */
 
 const dfsWithRecursion = (graph: { [key: string]: string[] }, node: string) => {
   const visited = [];
